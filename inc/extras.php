@@ -11,21 +11,24 @@
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
  * @param array $args Configuration arguments.
+ * 
  * @return array
  */
-function mindseyesociety_page_menu_args( $args ) {
+function mindseyesociety_page_menu_args( array $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'mindseyesociety_page_menu_args' );
 
+
 /**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
+ * 
  * @return array
  */
-function mindseyesociety_body_classes( $classes ) {
+function mindseyesociety_body_classes( array $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -35,11 +38,13 @@ function mindseyesociety_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'mindseyesociety_body_classes' );
 
+
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
  * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
+ * @param string $sep   Optional separator.
+ * 
  * @return string The filtered title.
  */
 function mindseyesociety_wp_title( $title, $sep ) {
@@ -49,7 +54,7 @@ function mindseyesociety_wp_title( $title, $sep ) {
 
 	global $page, $paged;
 
-	// Add the blog name
+	// Add the blog name.
 	$title .= get_bloginfo( 'name', 'display' );
 
 	// Add the blog description for the home/front page.
@@ -58,7 +63,7 @@ function mindseyesociety_wp_title( $title, $sep ) {
 		$title .= " $sep $site_description";
 	}
 
-	// Add a page number if necessary:
+	// Add a page number if necessary.
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
 		$title .= " $sep " . sprintf( __( 'Page %s', 'mindseyesociety' ), max( $paged, $page ) );
 	}
@@ -66,6 +71,7 @@ function mindseyesociety_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'mindseyesociety_wp_title', 10, 2 );
+
 
 /**
  * Sets the authordata global when viewing an author archive.
