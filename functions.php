@@ -2,7 +2,7 @@
 /**
  * Mind's Eye Society functions and definitions
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 /**

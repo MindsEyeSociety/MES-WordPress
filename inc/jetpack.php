@@ -3,7 +3,7 @@
  * Jetpack Compatibility File
  * See: http://jetpack.me/
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area.
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

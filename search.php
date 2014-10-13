@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 get_header(); ?>

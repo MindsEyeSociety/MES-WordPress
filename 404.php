@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (not found).
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 get_header(); ?>

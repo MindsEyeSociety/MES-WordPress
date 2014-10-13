@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 ?>
 

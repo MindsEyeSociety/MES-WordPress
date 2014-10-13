@@ -2,7 +2,7 @@
 /**
  * Mind's Eye Society Theme Customizer
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 /**

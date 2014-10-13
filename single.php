@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 get_header(); ?>

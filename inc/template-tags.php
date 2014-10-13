@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Mind's Eye Society
+ * @package mindseyesociety
  */
 
 if ( ! function_exists( 'mindseyesociety_paging_nav' ) ) :
