@@ -7,9 +7,11 @@
  * @package mindseyesociety
  */
 
-if ( ! function_exists( 'mindseyesociety_paging_nav' ) ) :
+
 /**
  * Display navigation to next/previous set of posts when applicable.
+ * 
+ * @return void
  */
 function mindseyesociety_paging_nav() {
 	// Don't print empty markup if there's only one page.
@@ -33,11 +35,12 @@ function mindseyesociety_paging_nav() {
 	</nav><!-- .navigation -->
 	<?php
 }
-endif;
 
-if ( ! function_exists( 'mindseyesociety_post_nav' ) ) :
+
 /**
  * Display navigation to next/previous post when applicable.
+ * 
+ * @return void
  */
 function mindseyesociety_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
@@ -59,11 +62,12 @@ function mindseyesociety_post_nav() {
 	</nav><!-- .navigation -->
 	<?php
 }
-endif;
 
-if ( ! function_exists( 'mindseyesociety_posted_on' ) ) :
+
 /**
  * Prints HTML with meta information for the current post-date/time and author.
+ * 
+ * @return void
  */
 function mindseyesociety_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -88,25 +92,26 @@ function mindseyesociety_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="posted-on">' . $posted_on . '</span>';
 
 }
-endif;
 
-if ( ! function_exists( 'mindseyesociety_entry_footer' ) ) :
+
 /**
  * Prints HTML with meta information for the categories, tags and comments.
+ * 
+ * @return void
  */
 function mindseyesociety_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
+		// Translators: used between list items, there is a space after the comma.
 		$categories_list = get_the_category_list( __( ', ', 'mindseyesociety' ) );
 		if ( $categories_list && mindseyesociety_categorized_blog() ) {
 			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'mindseyesociety' ) . '</span>', $categories_list );
 		}
 
-		/* translators: used between list items, there is a space after the comma */
+		// Translators: used between list items, there is a space after the comma.
 		$tags_list = get_the_tag_list( '', __( ', ', 'mindseyesociety' ) );
 		if ( $tags_list ) {
 			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'mindseyesociety' ) . '</span>', $tags_list );
@@ -121,12 +126,12 @@ function mindseyesociety_entry_footer() {
 
 	edit_post_link( __( 'Edit', 'mindseyesociety' ), '<span class="edit-link">', '</span>' );
 }
-endif;
+
 
 /**
  * Returns true if a blog has more than 1 category.
  *
- * @return bool
+ * @return boolean
  */
 function mindseyesociety_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'mindseyesociety_categories' ) ) ) {
@@ -154,8 +159,11 @@ function mindseyesociety_categorized_blog() {
 	}
 }
 
+
 /**
  * Flush out the transients used in mindseyesociety_categorized_blog.
+ *
+ * @return void
  */
 function mindseyesociety_category_transient_flusher() {
 	// Like, beat it. Dig?

@@ -11,11 +11,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'mindseyesociety' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'mindseyesociety' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'mindseyesociety' ), 'Mind\&#039;s Eye Society', '<a href="http://underscores.me/" rel="designer">Ephraim Gregor</a>' ); ?>
-		</div><!-- .site-info -->
+		<a href="http://white-wolf.com/" target="_blank">
+			Some materials are © copyright 2013 and trademarked by CCP, hf. The Camarilla is a trademark of CCP hf. All rights reserved. © 2013 by CCP hf.
+		</a>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

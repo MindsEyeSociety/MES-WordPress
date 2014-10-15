@@ -29,6 +29,9 @@ class MindsEyeSociety {
 
 		// Loads code to highlight external links.
 		add_action( 'wp_head', array( $this, 'external_links' ) );
+
+		// Customizes excerpt.
+		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );
 	}
 
 
@@ -68,7 +71,7 @@ class MindsEyeSociety {
 		register_sidebar( array(
 			'name'          => __( 'Sidebar', 'mindseyesociety' ),
 			'id'            => 'sidebar-1',
-			'description'   => '',
+			'description'   => 'Main right sidebar.',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h1 class="widget-title">',
@@ -115,11 +118,16 @@ class MindsEyeSociety {
 			esc_url( home_url() )
 		);
 	}
+
+
+	public function excerpt_more() {
+		return '&hellip; <a class="entry-more" href="' . esc_url( get_the_permalink() ) . '">Read more</a>';
+	}
 }
 
 
 // Implement the Custom Header feature.
-//require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';

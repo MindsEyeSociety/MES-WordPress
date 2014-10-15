@@ -31,8 +31,6 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php mindseyesociety_paging_nav(); ?>
-
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
