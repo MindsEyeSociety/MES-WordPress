@@ -21,14 +21,14 @@ class MindsEyeSociety {
 	 * Constructor.
 	 */
 	public function __construct() {
+		// Set up everything.
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 
+		// Initializes the widgets.
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
+		// Enqueues the scripts.
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
-
-		// Loads code to highlight external links.
-		add_action( 'wp_head', array( $this, 'external_links' ) );
 
 		// Customizes excerpt.
 		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );
@@ -109,17 +109,9 @@ class MindsEyeSociety {
 
 
 	/**
-	 * Adds icon to external links.
-	 * @return void
+	 * Sets the excerpt.
+	 * @return string
 	 */
-	public function external_links() {
-		printf(
-			'<style type="text/css">.entry-content a[href*="//"]:not([href*="%s"]):after { content: \'\e601\'; }</style>',
-			esc_url( home_url() )
-		);
-	}
-
-
 	public function excerpt_more() {
 		return '&hellip; <a class="entry-more" href="' . esc_url( get_the_permalink() ) . '">Read more</a>';
 	}

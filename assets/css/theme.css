@@ -357,10 +357,7 @@ big {
 
 
 .icon,
-.menu-item-has-children > a:after,
-.page-content a:after,
-.entry-content a:after,
-.entry-summary a:after {
+.menu-item-has-children > a:after {
 	font-family: 'icomoon';
 }
 
@@ -1013,13 +1010,6 @@ a:active {
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
-}
-
-
-.page-content a:after,
-.entry-content a:after,
-.entry-summary a:after {
-	font-size: 80%;
 }
 
 
