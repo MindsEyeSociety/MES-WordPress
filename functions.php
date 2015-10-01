@@ -130,7 +130,7 @@ class MindsEyeSociety {
 	 */
 	public function activate() {
 
-		$role = get_role( 'admin' );
+		$role = get_role( 'administrator' );
 		$role->remove_cap( 'activate_plugins' );
 		$role->remove_cap( 'switch_themes' );
 
@@ -143,7 +143,7 @@ class MindsEyeSociety {
 	 */
 	public function deactivate() {
 
-		$role = get_role( 'admin' );
+		$role = get_role( 'administrator' );
 		$role->add_cap( 'activate_plugins' );
 		$role->add_cap( 'switch_themes' );
 
