@@ -11,7 +11,7 @@
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
  * @param array $args Configuration arguments.
- * 
+ *
  * @return array
  */
 function mindseyesociety_page_menu_args( array $args ) {
@@ -25,7 +25,7 @@ add_filter( 'wp_page_menu_args', 'mindseyesociety_page_menu_args' );
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
- * 
+ *
  * @return array
  */
 function mindseyesociety_body_classes( array $classes ) {
@@ -44,7 +44,7 @@ add_filter( 'body_class', 'mindseyesociety_body_classes' );
  *
  * @param string $title Default title text for current view.
  * @param string $sep   Optional separator.
- * 
+ *
  * @return string The filtered title.
  */
 function mindseyesociety_wp_title( $title, $sep ) {
@@ -93,3 +93,15 @@ function mindseyesociety_setup_author() {
 	}
 }
 add_action( 'wp', 'mindseyesociety_setup_author' );
+
+
+/**
+ * Removes W3TC dashboard for non-super admins.
+ * @return void
+ */
+function mindseyesociety_remove_w3tc() {
+	if ( ! current_user_can( 'manage_network' ) ) {
+		remove_menu_page( 'w3tc_dashboard' );
+	}
+}
+add_action( 'admin_menu', 'mindseyesociety_remove_w3tc', 11 );

@@ -62,8 +62,6 @@ class MindsEyeSociety {
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
 		) );
 
-		// Sets up custom permissions.
-
 	}
 
 
