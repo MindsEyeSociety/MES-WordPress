@@ -21,17 +21,21 @@ class MindsEyeSociety {
 	 * Constructor.
 	 */
 	public function __construct() {
+		// Set up permissions after theme activation and deactivation.
+		add_action( 'after_switch_theme', array( $this, 'activate' ) );
+		add_action( 'switch_theme',       array( $this, 'deactivate' ) );
+
 		// Set up everything.
-		add_action( 'after_setup_theme', array( $this, 'setup' ) );
+		add_action( 'after_setup_theme',  array( $this, 'setup' ) );
 
 		// Initializes the widgets.
-		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_action( 'widgets_init',       array( $this, 'widgets_init' ) );
 
 		// Enqueues the scripts.
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
 		// Customizes excerpt.
-		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );
+		add_filter( 'excerpt_more',       array( $this, 'excerpt_more' ) );
 	}
 
 
@@ -57,6 +61,9 @@ class MindsEyeSociety {
 		add_theme_support( 'html5', array(
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
 		) );
+
+		// Sets up custom permissions.
+
 	}
 
 
@@ -114,6 +121,32 @@ class MindsEyeSociety {
 	 */
 	public function excerpt_more() {
 		return '&hellip; <a class="entry-more" href="' . esc_url( get_the_permalink() ) . '">Read more</a>';
+	}
+
+
+	/**
+	 * Sets permissions after theme activation.
+	 * @return void
+	 */
+	public function activate() {
+
+		$role = get_role( 'admin' );
+		$role->remove_cap( 'activate_plugins' );
+		$role->remove_cap( 'switch_themes' );
+
+	}
+
+
+	/**
+	 * Sets permissions after theme deactivation.
+	 * @return void
+	 */
+	public function deactivate() {
+
+		$role = get_role( 'admin' );
+		$role->add_cap( 'activate_plugins' );
+		$role->add_cap( 'switch_themes' );
+
 	}
 }
 
