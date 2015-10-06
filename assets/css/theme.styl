@@ -58,12 +58,13 @@ font-body = 'Merriweather', serif
 font-head = 'PT Serif', serif
 
 // Colors.
-color-body = rgb(64, 64, 64)
-color-head = rgb(0, 0, 0)
-color-background = rgb(230, 208, 153)
-color-accent = rgb(73, 12, 19)
-color-light = rgb(255, 255, 255)
-color-dark = color-head
+color-body       = #433d3d
+color-head       = #000
+color-background = #e6d099
+color-accent     = #5e0000
+color-light      = #fff
+color-dark       = color-head
+color-hover      = #94474d
 
 // Media queries.
 media-base = unquote( 'only screen and ' )
@@ -71,6 +72,8 @@ media-large = media-base + unquote( '(min-width: 1200px)' )
 media-normal = media-base + unquote( '(max-width: 1199px)' )
 media-tablet = media-base + unquote( '(max-width: 999px)' )
 media-mobile = media-base + unquote( '(max-width: 750px)' )
+
+@import '_styl/0-common'
 
 /*--------------------------------------------------------------
 1.0 Reset

@@ -9,6 +9,7 @@
 
 .content-area
 	border-right size-gap solid color-dark
+	flex-grow 1
 
 	@media media-mobile
 		border-right 0
@@ -21,11 +22,8 @@
 
 .main-navigation,
 .site-footer
+	@extend $common-bar
 	margin size-gap 0
-	background color-body
-	padding size-gap ( size-gutter - size-gap )
-	border size-gap solid color-accent
-	box-shadow inset 1px 1px 3px rgba(255, 255, 255, 0.2), inset -1px -1px 3px rgba(0, 0, 0, 0.4)
 
 	a
 		color color-light
@@ -40,4 +38,7 @@
 	@extend $aside
 
 	a
+		@extend $common-bar-child
 		text-decoration none
+		display block
+		padding size-gap

@@ -1,0 +1,41 @@
+// Adds moz prefixing for older FF.
+box-shadow()
+    -webkit-box-shadow arguments
+    -moz-box-shadow arguments
+    box-shadow arguments
+
+// Removes normal box as invalid type.
+display( type, args... )
+    if flex == type || inline-flex == type
+        if box in flex-version
+            if flex == type
+                display: -ms-flexbox args
+                display: -webkit-box args
+                display: -moz-box args
+            else
+                display: -ms-inline-flexbox args
+                display: vendor-value( inline-box args, only: moz webkit, ignore: official )
+        if flex in flex-version
+            display: vendor-value(arguments, only: webkit official) // overwrites old webkit
+    else
+        display: arguments
+
+$common-box-shadow
+    box-shadow 0 2px 2px rgba( color-dark, 0.8 )
+
+$common-simple-link
+    color color-light
+
+    &:hover
+        text-decoration underline
+
+$common-bar
+    background-color color-accent
+    overflow auto
+
+$common-bar-child
+    @extends $common-box-shadow
+    margin size-gap
+    background-color color-body
+    border 1px solid darken( color-body, 50% )
+    border-top-color lighten( color-body, 50% )
