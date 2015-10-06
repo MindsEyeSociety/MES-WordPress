@@ -52,7 +52,7 @@ function mindseyesociety_posted_on() {
 	printf(
 		'<span class="posted-on"><a href="%s" rel="bookmark">%s</a></span>',
 		esc_url( get_permalink() ),
-		esc_html( $time_string )
+		$time_string // @codingStandardsIgnoreLine
 	);
 
 }
