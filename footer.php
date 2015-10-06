@@ -8,14 +8,13 @@
  */
 ?>
 
-	</div><!-- #content -->
+</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<a href="http://white-wolf.com/" target="_blank">
-			Some materials are © copyright 2013 and trademarked by CCP, hf. The Camarilla is a trademark of CCP hf. All rights reserved. © 2013 by CCP hf.
-		</a>
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer id="colophon" class="footer" role="contentinfo">
+	<a href="http://white-wolf.com/" target="_blank" class="footer__link">
+		Some materials are © copyright 2013 and trademarked by CCP, hf. The Camarilla is a trademark of CCP hf. All rights reserved. © 2013 by CCP hf.
+	</a>
+</footer><!-- #colophon -->
 
 <?php wp_footer(); ?>
 

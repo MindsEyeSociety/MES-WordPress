@@ -1,0 +1,47 @@
+.content
+	@extend $common-container
+
+	@media media-tablet
+		display flex
+
+	&__main,
+	&__widgets
+		background color-background embedurl( '../../images/noise-50x50.png' )
+		padding size-gutter
+		box-shadow inset 0 0 size-gutter rgba(0, 0, 0, 0.1)
+
+	&__main
+		flex-grow 1
+
+		@media media-tablet
+			margin-right size-gutter
+
+	&__widgets
+		display none
+		flex 0 0 size-sidebar + ( size-gutter * 2 )
+
+		@media media-tablet
+			display block
+
+.main-navigation,
+.site-footer
+	@extend $common-bar
+	margin size-gap 0
+
+	a
+		color color-light
+
+.site-branding img
+	display block
+	width auto
+	margin auto
+
+.site-footer
+	text-align center
+	font-size 75%
+
+	a
+		@extend $common-bar-child
+		text-decoration none
+		display block
+		padding size-gap

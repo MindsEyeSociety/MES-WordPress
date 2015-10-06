@@ -8,54 +8,21 @@ Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mindseyesociety
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Mind's Eye Society is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
-
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
 */
-
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.0 Reset
-2.0 Typography
-	2.1 Icons
-3.0 Elements
-4.0 Forms
-5.0 Navigation
-	5.1 Links
-	5.2 Menus
-6.0 Accessibility
-7.0 Alignments
-8.0 Clearings
-9.0 Widgets
-10.0 Content
-	10.1 Posts and pages
-	10.2 Asides
-	10.3 Comments
-11.0 Media
-	11.1 Captions
-	11.2 Galleries
---------------------------------------------------------------*/
 
 // Static variables and styles.
 
 // Sizing and padding.
-size-body = 1200px // Total max size of content.
-size-gutter = 20px // Standard gutter size.
+size-body    = 1200px // Total max size of content.
+size-gutter  = 20px // Standard gutter size.
 size-sidebar = 300px // Sidebar width.
-size-main = size-body - ( size-gutter * 3 ) - size-sidebar // Max width of main content.
-size-gap = 5px
+size-main    = size-body - ( size-gutter * 3 ) - size-sidebar // Max width of main content.
+size-border  = 5px
 
 // Fonts.
 font-body = 'Merriweather', serif
 font-head = 'PT Serif', serif
+font-sans = 'Lucida Sans Unicode', 'Lucida Sans', sans-serif
 
 // Colors.
 color-body       = #433d3d
@@ -68,102 +35,71 @@ color-hover      = #94474d
 
 // Media queries.
 media-base = unquote( 'only screen and ' )
-media-large = media-base + unquote( '(min-width: 1200px)' )
-media-normal = media-base + unquote( '(max-width: 1199px)' )
-media-tablet = media-base + unquote( '(max-width: 999px)' )
-media-mobile = media-base + unquote( '(max-width: 750px)' )
+media-large  = media-base + unquote( '(min-width: 1200px)' )
+media-normal = media-base + unquote( '(min-width: 999px)' )
+media-tablet = media-base + unquote( '(min-width: 750px)' )
+media-mobile = media-base + unquote( '(min-width: 450px)' )
 
-@import '_styl/0-common'
+/**
+ * Reset.
+ */
+global-reset()
 
-/*--------------------------------------------------------------
-1.0 Reset
---------------------------------------------------------------*/
-@import '_styl/1-reset'
+/**
+ * Layout.
+ */
+html
+    box-sizing border-box
 
-/*--------------------------------------------------------------
-2.0 Typography
---------------------------------------------------------------*/
-@import '_styl/2-typography'
+*, *:before, *:after
+    box-sizing inherit
 
-/*--------------------------------------------------------------
-2.1 Icons
---------------------------------------------------------------*/
-@import '_styl/2-1-icons'
+body
+    font 15px/1.2 'Georgia', 'Times New Roman', Times, serif
+    width 100%
+    max-width size-body
+    margin 0 auto
+    background-color color-dark
 
-/*--------------------------------------------------------------
-3.0 Elements
---------------------------------------------------------------*/
-@import '_styl/3-elements'
+h1, h2, h3, h4, h5, h6, strong
+    font-weight bold
 
-/*--------------------------------------------------------------
-4.0 Forms
---------------------------------------------------------------*/
-@import '_styl/4-forms'
+h1, h2, h3
+    margin-bottom 1rem
 
-/*--------------------------------------------------------------
-5.0 Navigation
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-5.1 Links
---------------------------------------------------------------*/
-@import '_styl/5-1-links'
+h1
+    font-size 150%
 
-/*--------------------------------------------------------------
-5.2 Menus
---------------------------------------------------------------*/
-@import '_styl/5-2-menus'
+em
+    font-style oblique
 
-/*--------------------------------------------------------------
-6.0 Accessibility
---------------------------------------------------------------*/
-@import '_styl/6-accessibility'
+p
+    margin 1rem 0
 
-/*--------------------------------------------------------------
-7.0 Alignments
---------------------------------------------------------------*/
-@import '_styl/7-alignments'
+a
+    color color-accent
+    text-decoration none
 
-/*--------------------------------------------------------------
-8.0 Clearings
---------------------------------------------------------------*/
-@import '_styl/8-clearings'
+    &:hover,
+    &:active
+        color color-hover
 
-/*--------------------------------------------------------------
-9.0 Widgets
---------------------------------------------------------------*/
-@import '_styl/9-widgets'
+/**
+ * Common styles
+ */
+@import '_styl/common'
 
-/*--------------------------------------------------------------
-10.0 Content
---------------------------------------------------------------*/
-@import '_styl/10-content'
+/**
+ * Header
+ */
+@import '_styl/header'
 
-/*--------------------------------------------------------------
-10.1 Posts and pages
---------------------------------------------------------------*/
-@import '_styl/10-1-posts-pages'
+/**
+ * Navigation
+ */
+@import '_styl/navigation'
 
-/*--------------------------------------------------------------
-10.2 Asides
---------------------------------------------------------------*/
-@import '_styl/10-2-asides'
-
-/*--------------------------------------------------------------
-10.3 Comments
---------------------------------------------------------------*/
-@import '_styl/10-3-comments'
-
-/*--------------------------------------------------------------
-11.0 Media
---------------------------------------------------------------*/
-@import '_styl/11-media'
-
-/*--------------------------------------------------------------
-12.1 Captions
---------------------------------------------------------------*/
-@import '_styl/11-1-captions'
-
-/*--------------------------------------------------------------
-12.2 Galleries
---------------------------------------------------------------*/
-@import '_styl/11-2-galleries'
+/**
+ * Content
+ */
+@import '_styl/content'

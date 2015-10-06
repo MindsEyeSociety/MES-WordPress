@@ -7,66 +7,23 @@
  * @package mindseyesociety
  */
 
-
 /**
- * Display navigation to next/previous set of posts when applicable.
- * 
+ * Generates the main navigation menu.
  * @return void
  */
-function mindseyesociety_paging_nav() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'mindseyesociety' ); ?></h1>
-		<div class="nav-links">
-
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'mindseyesociety' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'mindseyesociety' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
-}
-
-
-/**
- * Display navigation to next/previous post when applicable.
- * 
- * @return void
- */
-function mindseyesociety_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-
-	if ( ! $next && ! $previous ) {
-		return;
-	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'mindseyesociety' ); ?></h1>
-		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'mindseyesociety' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'mindseyesociety' ) );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+function mindseyesociety_navigation() {
+	wp_nav_menu( array(
+		'theme_location' => 'primary',
+		'container'      => false,
+		'depth'          => 3,
+		'menu_class'     => 'nav__menu',
+	) );
 }
 
 
 /**
  * Prints HTML with meta information for the current post-date/time and author.
- * 
+ *
  * @return void
  */
 function mindseyesociety_posted_on() {
@@ -84,7 +41,7 @@ function mindseyesociety_posted_on() {
 
 	$posted_on = sprintf(
 		_x( 'Posted on %s', 'post date', 'mindseyesociety' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$time_string
 	);
 
 	$byline = sprintf(
@@ -92,29 +49,39 @@ function mindseyesociety_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span>';
+	printf(
+		'<span class="posted-on"><a href="%s" rel="bookmark">%s</a></span>',
+		esc_url( get_permalink() ),
+		esc_html( $time_string )
+	);
 
 }
 
 
 /**
  * Prints HTML with meta information for the categories, tags and comments.
- * 
+ *
  * @return void
  */
 function mindseyesociety_entry_footer() {
 	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
+	if ( 'post' === get_post_type() ) {
 		// Translators: used between list items, there is a space after the comma.
 		$categories_list = get_the_category_list( __( ', ', 'mindseyesociety' ) );
-		if ( $categories_list && mindseyesociety_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'mindseyesociety' ) . '</span>', $categories_list );
+		if ( $categories_list ) {
+			printf(
+				'<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'mindseyesociety' ) . '</span>',
+				$categories_list // @codingStandardsIgnoreLine
+			);
 		}
 
 		// Translators: used between list items, there is a space after the comma.
 		$tags_list = get_the_tag_list( '', __( ', ', 'mindseyesociety' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'mindseyesociety' ) . '</span>', $tags_list );
+			printf(
+				'<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'mindseyesociety' ) . '</span>',
+				$tags_list // @codingStandardsIgnoreLine
+			);
 		}
 	}
 
@@ -126,48 +93,3 @@ function mindseyesociety_entry_footer() {
 
 	edit_post_link( __( 'Edit', 'mindseyesociety' ), '<span class="edit-link">', '</span>' );
 }
-
-
-/**
- * Returns true if a blog has more than 1 category.
- *
- * @return boolean
- */
-function mindseyesociety_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'mindseyesociety_categories' ) ) ) {
-		// Create an array of all the categories that are attached to posts.
-		$all_the_cool_cats = get_categories( array(
-			'fields'     => 'ids',
-			'hide_empty' => 1,
-
-			// We only need to know if there is more than one category.
-			'number'     => 2,
-		) );
-
-		// Count the number of categories that are attached to the posts.
-		$all_the_cool_cats = count( $all_the_cool_cats );
-
-		set_transient( 'mindseyesociety_categories', $all_the_cool_cats );
-	}
-
-	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so mindseyesociety_categorized_blog should return true.
-		return true;
-	} else {
-		// This blog has only 1 category so mindseyesociety_categorized_blog should return false.
-		return false;
-	}
-}
-
-
-/**
- * Flush out the transients used in mindseyesociety_categorized_blog.
- *
- * @return void
- */
-function mindseyesociety_category_transient_flusher() {
-	// Like, beat it. Dig?
-	delete_transient( 'mindseyesociety_categories' );
-}
-add_action( 'edit_category', 'mindseyesociety_category_transient_flusher' );
-add_action( 'save_post',     'mindseyesociety_category_transient_flusher' );

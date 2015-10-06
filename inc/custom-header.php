@@ -21,7 +21,7 @@ function mindseyesociety_custom_header_setup() {
 		'height'      => 100,
 		'flex-height' => true,
 		'flex-width'  => true,
-);
+	);
 	add_theme_support( 'custom-header', $args );
 }
 add_action( 'after_setup_theme', 'mindseyesociety_custom_header_setup' );
