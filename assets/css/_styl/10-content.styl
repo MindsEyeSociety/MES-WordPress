@@ -1,0 +1,43 @@
+.site-content
+	display flex
+
+.content-area,
+.widget-area
+	background color-background embedurl( '../../images/noise-50x50.png' )
+	padding size-gutter
+	box-shadow inset 0 0 size-gutter rgba(0, 0, 0, 0.1)
+
+.content-area
+	border-right size-gap solid color-dark
+
+	@media media-mobile
+		border-right 0
+
+.widget-area
+	flex 0 0 size-sidebar + ( size-gutter * 2 )
+
+	@media media-mobile
+		display none
+
+.main-navigation,
+.site-footer
+	margin size-gap 0
+	background color-body
+	padding size-gap ( size-gutter - size-gap )
+	border size-gap solid color-accent
+	box-shadow inset 1px 1px 3px rgba(255, 255, 255, 0.2), inset -1px -1px 3px rgba(0, 0, 0, 0.4)
+
+	a
+		color color-light
+
+.site-branding img
+	display block
+	width auto
+	margin auto
+
+.site-footer
+	text-align center
+	@extend $aside
+
+	a
+		text-decoration none

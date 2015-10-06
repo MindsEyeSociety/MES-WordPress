@@ -1,0 +1,96 @@
+.main-navigation
+	clear both
+	display block
+	float left
+	width 100%
+
+.nav-menu,
+.sub-menu
+	list-style none
+	margin 0
+	padding-left 0
+
+.menu-item
+	float left
+	position relative
+
+	a
+		display block
+		text-decoration none
+		padding 0 size-gutter
+
+		&:hover
+			background-color color-accent
+
+	&:hover > ul
+		left auto
+
+.current-menu-ancestor,
+.current-menu-item
+	& > a
+		@extend .menu-item a:hover
+
+.sub-menu
+	box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
+	float left
+	position absolute
+	top 1.5em
+	left -999em
+	z-index 99999
+	background-color color-body
+	padding-top size-gap
+
+	a
+		width 200px
+		padding size-gap size-gutter
+
+	li:hover > ul
+		left 100%
+
+	.sub-menu
+		left -999em
+		top 0
+		padding-top 0
+
+		.menu-item-has-children > a:after
+			display none
+
+.menu-item-has-children > a:after
+	@extend .icon
+	@extend .icon-arrow-down:before
+	vertical-align middle
+
+.sub-menu > .menu-item-has-children > a:after
+	@extend .icon-arrow-right:before
+	float right
+
+/* Small menu */
+.menu-toggle
+	display none
+
+@media media-mobile
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu
+		display block
+	
+	.main-navigation ul
+		display none
+	
+.site-main
+	.comment-navigation,
+	.paging-navigation,
+	.post-navigation
+		margin 0 0 1.5em
+		overflow hidden
+
+.comment-navigation,
+.paging-navigation,
+.post-navigation
+	.nav-previous
+		float left
+		width 50%
+
+	.nav-next
+		float right
+		text-align right
+		width 50%
