@@ -46,43 +46,30 @@ media-mobile = media-base + unquote( '(min-width: 450px)' )
 global-reset()
 
 /**
- * Layout.
+ * Base
  */
-html
-    box-sizing border-box
+ html
+     box-sizing border-box
 
-*, *:before, *:after
-    box-sizing inherit
+ *, *:before, *:after
+     box-sizing inherit
 
-body
-    font 15px/1.2 'Georgia', 'Times New Roman', Times, serif
-    width 100%
-    max-width size-body
-    margin 0 auto
-    background-color color-dark
+ body
+     font 15px/1.2 font-sans
+     width 100%
+     max-width size-body
+     margin 0 auto
+     background-color color-dark
 
-h1, h2, h3, h4, h5, h6, strong
-    font-weight bold
+/**
+ * Typography
+ */
+@import '_styl/typography'
 
-h1, h2, h3
-    margin-bottom 1rem
-
-h1
-    font-size 150%
-
-em
-    font-style oblique
-
-p
-    margin 1rem 0
-
-a
-    color color-accent
-    text-decoration none
-
-    &:hover,
-    &:active
-        color color-hover
+/**
+ * Forms
+ */
+@import '_styl/forms'
 
 /**
  * Icons
@@ -113,3 +100,37 @@ a
  * Content
  */
 @import '_styl/content'
+
+/**
+ * Widgets
+ */
+@import '_styl/widgets'
+
+/**
+ * Hacks
+ */
+.screen-reader-text
+    clip rect( 1px 1px 1px 1px )
+    position absolute !important
+    height 1px
+    width 1px
+    overflow hidden
+
+    &:focus
+        background-color #f1f1f1
+        border-radius 3px
+        box-shadow 0 0 2px 2px rgba(0, 0, 0, 0.6)
+        clip auto !important
+        color #21759b
+        display block
+        font-size 14px
+        font-size 0.875rem
+        font-weight bold
+        height auto
+        left 5px
+        line-height normal
+        padding 15px 23px 14px
+        text-decoration none
+        top 5px
+        width auto
+        z-index 100000 // Above WP toolbar.

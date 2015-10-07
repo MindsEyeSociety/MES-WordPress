@@ -1,62 +1,25 @@
-hr
-	background-color color-accent
-	border 0
-	height 1px
-	margin-bottom 1.5em
+.entry
+	&__header,
+	&__content
+		margin-bottom size-gutter
 
-ul,
-ol
-	margin 0 0 1.5em 3em
+	&__title
+		margin-bottom size-border
+		font-family 'IM Fell English', serif
+		font-size 2rem
 
-ul
-	list-style disc
+	&__link
+		color color-dark
 
-ol
-	list-style decimal
+	&__meta
+		font-size 80%
 
-li
-	& > ul,
-	& > ol
-		margin-bottom 0
-		margin-left 1.5em
+	&__content
+		font-family font-body
 
-dt
-	font-weight bold
-
-dd
-	margin 0 1.5em 1.5em
-
-img
-	/* Make sure images are scaled correctly. */
-	height auto
-	/* Adhere to container width. */
-	max-width 100%
-
-figure
-	margin 0
-
-table
-	margin 0 0 1.5em
-	width 100%
-
-th
-	font-weight bold
-
-fieldset
-	border 1px solid color-accent
-	padding size-gutter
-	margin size-gutter
-
-a
-	color color-accent
-
-	&:visited
-		color darken(color-accent, 10%)
-
-	&:hover,
-	&:focus,
-	&:active
-		color lighten(color-accent, 10%)
+.page__title
+	@extend .entry__title
+	font-size 3rem
 
 .alignleft
 	float left

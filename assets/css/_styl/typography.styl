@@ -1,40 +1,17 @@
+h1, h2, h3
+    margin-bottom 1rem
 
-body,
-button,
-input,
-select,
-textarea
-	color color-body
-	font-family font-body
-	font-size 12px
-	font-size 1.2rem
-	line-height 1.5em
+h1
+    font-size 160%
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-legend
-	clear both
-	color color-head
-	font-family font-head
-	font-weight 700
-	line-height 1.5em
+h2
+	font-size 140%
 
-h1,
-h2,
 h3
-	font-size 24px
-	font-size 2.4rem
+	font-size 120%
 
-p
-	margin-bottom 1.5em
-
-b,
-strong
-	font-weight bold
+h1, h2, h3, b, strong
+    font-weight bold
 
 dfn,
 cite,
@@ -42,8 +19,91 @@ em,
 i
 	font-style italic
 
+p
+    margin 1rem 0
+
+a
+	color color-accent
+	text-decoration none
+
+	&:visited
+		color darken(color-accent, 10%)
+
+	&:hover,
+	&:focus,
+	&:active
+		color lighten(color-accent, 10%)
+
+hr
+	background-color color-accent
+	border 0
+	height 1px
+	margin-bottom 1.5em
+
+ul,
+ol
+	margin 0 0 1.5em 3em
+
+ul
+	list-style disc
+
+ol
+	list-style decimal
+
+li
+	& > ul,
+	& > ol
+		margin-bottom 0
+		margin-left 1.5em
+
+dt
+	font-weight bold
+
+dd
+	margin 0 1.5em 1.5em
+
+img
+	/* Make sure images are scaled correctly. */
+	height auto
+	/* Adhere to container width. */
+	max-width 100%
+
+figure
+	margin 0
+
+fieldset
+	border 1px solid color-accent
+	padding size-gutter
+	margin size-gutter
+
+table
+	margin 0 0 1.5em
+	width 100%
+
+th
+	padding-bottom ( size-gutter / 2 )
+	font-weight bold
+
+td
+	padding ( size-gutter / 2 ) 0
+	border-top 1px solid alpha( color-body, 20% )
+
+
+legend
+	clear both
+	color color-head
+	font-family font-head
+	font-weight 700
+	line-height 1.5em
+
 blockquote
 	margin 0 1.5em
+
+	cite
+		display block
+		margin-top 1rem
+		text-align right
+		font-size 80%
 
 address
 	margin 0 0 1.5em
@@ -51,13 +111,12 @@ address
 pre
 	background #eee
 	font-family 'Courier 10 Pitch', Courier, monospace
-	font-size 15px
-	font-size 1.5rem
+	font-size 0.8rem
 	line-height 1.6
-	margin-bottom 1.6em
+	margin-bottom size-gutter
 	max-width 100%
 	overflow auto
-	padding 1.6em
+	padding size-gutter
 
 code,
 kbd,

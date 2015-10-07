@@ -110,7 +110,7 @@ a img {
 }
 
 /**
- * Layout.
+ * Base
  */
 html {
 	-webkit-box-sizing: border-box;
@@ -131,19 +131,12 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 	background-color: #000;
-	font: 15px/1.2 "Georgia", "Times New Roman", Times, serif;
+	font: 15px/1.2 "Lucida Sans Unicode", "Lucida Sans", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-	font-weight: bold;
-}
-
+/**
+ * Typography
+ */
 h1,
 h2,
 h3 {
@@ -151,11 +144,30 @@ h3 {
 }
 
 h1 {
-	font-size: 150%;
+	font-size: 160%;
 }
 
-em {
-	font-style: oblique;
+h2 {
+	font-size: 140%;
+}
+
+h3 {
+	font-size: 120%;
+}
+
+h1,
+h2,
+h3,
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
 }
 
 p {
@@ -167,9 +179,284 @@ a {
 	text-decoration: none;
 }
 
+a:visited {
+	color: #500;
+}
+
 a:hover,
+a:focus,
 a:active {
-	color: #94474d;
+	color: #800;
+}
+
+hr {
+	height: 1px;
+	margin-bottom: 1.5em;
+	border: 0;
+	background-color: #5e0000;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	/* Adhere to container width. */
+	max-width: 100%;
+	/* Make sure images are scaled correctly. */
+	height: auto;
+}
+
+figure {
+	margin: 0;
+}
+
+fieldset {
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #5e0000;
+}
+
+table {
+	width: 100%;
+	margin: 0 0 1.5em;
+}
+
+th {
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+td {
+	padding: 10px 0;
+	border-top: 1px solid rgba(67,61,61,0.2);
+}
+
+legend {
+	clear: both;
+	color: #000;
+	font-family: "PT Serif", serif;
+	font-weight: 700;
+	line-height: 1.5em;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+blockquote cite {
+	display: block;
+	margin-top: 1rem;
+	font-size: 80%;
+	text-align: right;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	overflow: auto;
+	max-width: 100%;
+	margin-bottom: 20px;
+	padding: 20px;
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 0.8rem;
+	line-height: 1.6;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+small,
+sup,
+sub {
+	font-size: 75%;
+}
+
+sup,
+sub {
+	position: relative;
+	height: 0;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: 0.5ex;
+}
+
+big {
+	font-size: 125%;
+}
+
+/**
+ * Forms
+ */
+button,
+textarea,
+input,
+select {
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	padding: 0.6em 1em 0.4em;
+	color: #fff;
+	background: #433d3d;
+	-webkit-box-shadow: inset 0 15px 17px rgba(255,255,255,0.1), inset 0 -5px 12px rgba(0,0,0,0.1);
+	box-shadow: inset 0 15px 17px rgba(255,255,255,0.1), inset 0 -5px 12px rgba(0,0,0,0.1);
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1;
+	/* Improves usability and consistency of cursor style between image-type 'input' and others */
+	cursor: pointer;
+	/* Corrects inability to style clickable 'input' types in iOS */
+
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	border-color-bottom: #bbb;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+	-webkit-box-shadow: inset 0 15px 17px rgba(255,255,255,0.08), inset 0 -5px 12px rgba(0,0,0,0.2);
+	box-shadow: inset 0 15px 17px rgba(255,255,255,0.08), inset 0 -5px 12px rgba(0,0,0,0.2);
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb;
+	-webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+	box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	/* Addresses excess padding in IE8/9 */
+	padding: 0;
+}
+
+input[type="search"] {
+	/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	/* Addresses appearance set to searchfield in S5, Chrome */
+
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: #666;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+select {
+	padding: 3px;
+}
+
+select {
+	background-color: #fff;
+}
+
+textarea {
+	/* Removes default vertical scrollbar in IE6/7/8/9 */
+	overflow: auto;
+	width: 100%;
+	padding-left: 3px;
+	/* Improves readability and alignment in all browsers */
+	vertical-align: top;
 }
 
 /**
@@ -374,6 +661,7 @@ a:active {
 }
 
 .nav__link,
+.nav__link:visited,
 .nav__link:hover {
 	color: #fff;
 }
@@ -475,78 +763,32 @@ a:active {
 /**
  * Content
  */
-hr {
-	height: 1px;
-	margin-bottom: 1.5em;
-	border: 0;
-	background-color: #5e0000;
+.entry__header,
+.entry__content {
+	margin-bottom: 20px;
 }
 
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
+.entry__title,
+.page__title {
+	margin-bottom: 5px;
+	font-family: "IM Fell English", serif;
+	font-size: 2rem;
 }
 
-ul {
-	list-style: disc;
+.entry__link {
+	color: #000;
 }
 
-ol {
-	list-style: decimal;
+.entry__meta {
+	font-size: 80%;
 }
 
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+.entry__content {
+	font-family: "Merriweather", serif;
 }
 
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
-img {
-	/* Adhere to container width. */
-	max-width: 100%;
-	/* Make sure images are scaled correctly. */
-	height: auto;
-}
-
-figure {
-	margin: 0;
-}
-
-table {
-	width: 100%;
-	margin: 0 0 1.5em;
-}
-
-th {
-	font-weight: bold;
-}
-
-fieldset {
-	margin: 20px;
-	padding: 20px;
-	border: 1px solid #5e0000;
-}
-
-a {
-	color: #5e0000;
-}
-
-a:visited {
-	color: #500;
-}
-
-a:hover,
-a:focus,
-a:active {
-	color: #800;
+.page__title {
+	font-size: 3rem;
 }
 
 .alignleft {
@@ -598,4 +840,67 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+
+/**
+ * Widgets
+ */
+.widget {
+	margin: 0 0 1.5em;
+}
+
+.widget__title {
+	color: #433d3d;
+	font: 700 0.8rem "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+}
+
+.widget select {
+	width: 100%;
+}
+
+.widget_search .search-field {
+	width: 294px;
+}
+
+.widget_search .search-submit {
+	display: none;
+}
+
+.widget_recent_entries ul {
+	margin: 0;
+	list-style: none;
+}
+
+/**
+ * Hacks
+ */
+.screen-reader-text {
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+}
+
+.screen-reader-text:focus {
+	display: block;
+	clip: auto !important;
+	z-index: 100000;
+	top: 5px;
+	left: 5px;
+	width: auto;
+	height: auto;
+	padding: 15px 23px 14px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #21759b;
+	background-color: #f1f1f1;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0 0 2px 2px rgba(0,0,0,0.6);
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.6);
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
 }

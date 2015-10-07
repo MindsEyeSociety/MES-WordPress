@@ -83,7 +83,7 @@ class MindsEyeSociety {
 			'description'   => 'Main right sidebar.',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="widget-title">',
+			'before_title'  => '<h1 class="widget__title">',
 			'after_title'   => '</h1>',
 		) );
 	}
@@ -95,7 +95,7 @@ class MindsEyeSociety {
 	 */
 	public function scripts() {
 		// Loads the Google Fonts we want.
-		wp_enqueue_style( 'mindseyesociety-fonts', '//fonts.googleapis.com/css?family=PT+Serif:700|Merriweather:400,400italic,700italic,700' );
+		wp_enqueue_style( 'mindseyesociety-fonts', '//fonts.googleapis.com/css?family=PT+Serif:700|Merriweather:400,400italic,700italic,700|IM+Fell+English' );
 
 		// Sets root path.
 		$root = get_template_directory_uri() . '/assets/';
