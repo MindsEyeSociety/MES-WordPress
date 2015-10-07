@@ -173,6 +173,66 @@ a:active {
 }
 
 /**
+ * Icons
+ */
+.icon,
+.nav__item--children > .nav__link:after {
+	font-family: "icomoon";
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1;
+	text-transform: none;
+
+	speak: none;
+}
+
+@font-face {
+	font-family: "icomoon";
+	src: url("../fonts/icomoon.eot?#ie-fix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg");
+}
+
+.icon--search:before {
+	content: "\e600";
+}
+
+.icon--newtab:before {
+	content: "\e601";
+}
+
+.icon--googleplus:before {
+	content: "\e602";
+}
+
+.icon--facebook:before {
+	content: "\e603";
+}
+
+.icon--twitter:before {
+	content: "\e604";
+}
+
+.icon--arrow-left:before {
+	content: "\e605";
+}
+
+.icon--arrow-down:before,
+.nav__item--children > .nav__link:after {
+	content: "\e606";
+}
+
+.icon--arrow-up:before {
+	content: "\e607";
+}
+
+.icon--arrow-right:before,
+.nav__submenu .nav__item--children > .nav__link:after {
+	content: "\e608";
+}
+
+/**
  * Common styles
  */
 .header,
@@ -229,9 +289,7 @@ a:active {
 
 .header__branding {
 	display: block;
-	width: 1200px;
 	max-width: 100%;
-	background-image: url("/images/site-header.png");
 }
 
 .header__logo {
@@ -276,13 +334,37 @@ a:active {
 	}
 }
 
+.nav__menu,
+.nav__submenu {
+	list-style: none;
+}
+
 .nav__menu {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: -webkit-box;
-	display: -moz-box;
-	display: flex;
+	zoom: 1;
 	padding: 0.25rem;
+}
+
+.nav__menu:before,
+.nav__menu:after {
+	display: table;
+	content: "";
+}
+
+.nav__menu:after {
+	clear: both;
+}
+
+.nav__menu > .nav__item {
+	display: block;
+	float: left;
+}
+
+.nav__item--children > .nav__link:after {
+	vertical-align: middle;
+}
+
+.nav__submenu .nav__item--children > .nav__link:after {
+	float: right;
 }
 
 .nav__link {
@@ -303,6 +385,7 @@ a:active {
 .nav__submenu {
 	display: none;
 	position: absolute;
+	z-index: 1;
 	width: 200px;
 	margin: 0;
 	background-color: #5e0000;
@@ -321,8 +404,12 @@ a:active {
 	left: 200px;
 }
 
+.nav__submenu .nav__submenu .nav__link:after {
+	display: none;
+}
+
 /**
- * Content
+ * Structure
  */
 .content {
 	position: relative;
@@ -383,4 +470,132 @@ a:active {
 	display: block;
 	padding: size-gap;
 	text-decoration: none;
+}
+
+/**
+ * Content
+ */
+hr {
+	height: 1px;
+	margin-bottom: 1.5em;
+	border: 0;
+	background-color: #5e0000;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	/* Adhere to container width. */
+	max-width: 100%;
+	/* Make sure images are scaled correctly. */
+	height: auto;
+}
+
+figure {
+	margin: 0;
+}
+
+table {
+	width: 100%;
+	margin: 0 0 1.5em;
+}
+
+th {
+	font-weight: bold;
+}
+
+fieldset {
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #5e0000;
+}
+
+a {
+	color: #5e0000;
+}
+
+a:visited {
+	color: #500;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #800;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	display: block;
+	clear: both;
+	margin: 0 auto;
+}
+
+.wp-caption {
+	max-width: 100%;
+	margin-bottom: 1.5em;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+}
+
+embed,
+iframe,
+object {
+	max-width: 100%;
 }

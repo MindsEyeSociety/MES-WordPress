@@ -1,0 +1,32 @@
+.icon
+	font-family 'icomoon'
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+	line-height 1
+
+/* Fontspring font face: http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax */
+@font-face
+	font-family 'icomoon'
+	src url( '../fonts/icomoon.eot?#ie-fix' ) format( 'embedded-opentype' ),
+		url( '../fonts/icomoon.woff' ) format( 'woff' ),
+		url( '../fonts/icomoon.ttf' ) format( 'truetype' ),
+		url( '../fonts/icomoon.svg#icomoon' ) format( 'svg' )
+
+icon( class, code )
+	.icon--{class}:before
+		content '\e' + code
+
+icon( search, 600 )
+icon( newtab, 601 )
+icon( googleplus, 602 )
+icon( facebook, 603 )
+icon( twitter, 604 )
+icon( arrow-left, 605 )
+icon( arrow-down, 606 )
+icon( arrow-up, 607 )
+icon( arrow-right, 608 )

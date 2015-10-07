@@ -7,10 +7,27 @@
         @media media-tablet
             display none
 
+    &__menu,
+    &__submenu
+        list-style none
+
     &__menu
         @extends $common-bar-child
-        display flex
         padding .25rem
+        clearfix()
+
+    &__menu > &__item
+        float left
+        display block
+
+    &__item--children > &__link:after
+        @extend .icon
+        @extend .icon--arrow-down:before
+        vertical-align middle
+
+        .nav__submenu &
+            @extend .icon--arrow-right:before
+            float right
 
     &__link
         display block
@@ -31,6 +48,7 @@
         background-color color-accent
         box-shadow 0 3px 3px color-dark
         display none
+        z-index 1
 
     &__item:hover > &__submenu
         display block
@@ -39,3 +57,6 @@
         position absolute
         left 200px
         top 0
+
+        .nav__link:after
+            display none

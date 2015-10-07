@@ -1,45 +1,101 @@
-.content
-	@extend $common-container
-	position relative
+hr
+	background-color color-accent
+	border 0
+	height 1px
+	margin-bottom 1.5em
 
-	&__main,
-	&__widgets
-		background color-background embedurl( '../../images/noise-50x50.png' )
-		padding size-gutter
-		box-shadow inset 0 0 size-gutter rgba(0, 0, 0, 0.1)
+ul,
+ol
+	margin 0 0 1.5em 3em
 
-	&__main
-		@media media-tablet
-			width unquote( 'calc( 100% - ' + ( size-sidebar + size-border ) + ' )' )
+ul
+	list-style disc
 
-	&__widgets
-		display none
-		width size-sidebar
-		absolute top 0 right 0
-		bottom 0
+ol
+	list-style decimal
 
-		@media media-tablet
-			display block
+li
+	& > ul,
+	& > ol
+		margin-bottom 0
+		margin-left 1.5em
 
-.main-navigation,
-.site-footer
-	@extend $common-bar
-	margin size-gap 0
+dt
+	font-weight bold
 
-	a
-		color color-light
+dd
+	margin 0 1.5em 1.5em
 
-.site-branding img
+img
+	/* Make sure images are scaled correctly. */
+	height auto
+	/* Adhere to container width. */
+	max-width 100%
+
+figure
+	margin 0
+
+table
+	margin 0 0 1.5em
+	width 100%
+
+th
+	font-weight bold
+
+fieldset
+	border 1px solid color-accent
+	padding size-gutter
+	margin size-gutter
+
+a
+	color color-accent
+
+	&:visited
+		color darken(color-accent, 10%)
+
+	&:hover,
+	&:focus,
+	&:active
+		color lighten(color-accent, 10%)
+
+.alignleft
+	float left
+	margin-right 1.5em
+
+.alignright
+	float right
+	margin-left 1.5em
+
+.aligncenter
+	clear both
 	display block
-	width auto
-	margin auto
+	margin 0 auto
 
-.site-footer
+.wp-caption
+	margin-bottom 1.5em
+	max-width 100%
+
+.wp-caption img[class*='wp-image-']
+	display block
+	margin 0 auto
+
+.wp-caption-text
 	text-align center
-	font-size 75%
 
-	a
-		@extend $common-bar-child
-		text-decoration none
-		display block
-		padding size-gap
+.wp-caption .wp-caption-text
+	margin 0.8075em 0
+
+.gallery
+	margin-bottom 1.5em
+
+.gallery-item
+	display inline-block
+	text-align center
+	vertical-align top
+	width 100%
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object
+	max-width 100%
