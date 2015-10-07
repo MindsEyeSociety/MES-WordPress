@@ -8,12 +8,14 @@
  */
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'mindseyesociety' ); ?></h1>
-	</header><!-- .page-header -->
+<section class="no-results">
 
-	<div class="page-content">
+	<header class="page__header">
+		<h1 class="page__title"><?php esc_html_e( 'Nothing Found', 'mindseyesociety' ); ?></h1>
+	</header><!-- .page__header -->
+
+	<div class="page__content">
+
 		<?php if ( is_search() ) : ?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'mindseyesociety' ); ?></p>
@@ -25,5 +27,6 @@
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
-	</div><!-- .page-content -->
+
+	</div><!-- .page__content -->
 </section><!-- .no-results -->
