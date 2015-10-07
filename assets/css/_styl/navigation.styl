@@ -1,21 +1,18 @@
 .nav
     @extends $common-bar
-    position relative
-    top -67px
     font 13px 'Century Gothic', Futura, 'URW Gothic L', Verdana, sans-serif
-    overflow visible
-    height size-nav
+    margin-bottom size-border
 
     &__toggle
         @media media-tablet
             display none
 
-    &-menu
+    &__menu
         @extends $common-bar-child
         display flex
         padding .25rem
 
-    &-link
+    &__link
         display block
         padding .25rem 1rem
         cursor pointer
@@ -24,10 +21,10 @@
         &:hover
             color color-light
 
-    &-item:hover
+    &__item:hover
         background-color color-hover
 
-    &-child
+    &__submenu
         width 200px
         margin 0
         position absolute
@@ -35,5 +32,10 @@
         box-shadow 0 3px 3px color-dark
         display none
 
-    &-item:hover &-child
+    &__item:hover > &__submenu
         display block
+
+    &__submenu &__submenu
+        position absolute
+        left 200px
+        top 0

@@ -2,25 +2,17 @@
 .header
     @extend $common-container
     position relative
-    height 180px
 
     // Branding image
     &__branding
         background-image url( '/images/site-header.png' )
         width size-body
         max-width 100%
-        height 190px
         display block
 
-    // Top right menu
-    &__menu-user
-        text-align right
-        absolute top 0.5rem right 0
-        font .9em / 1.5rem font-sans
-        color color-light
-
-        a
-            @extends $common-simple-link
+    &__logo
+        display block
+        margin 0 auto
 
 // Footer
 .footer

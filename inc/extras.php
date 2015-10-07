@@ -22,6 +22,54 @@ add_filter( 'body_class', 'mindseyesociety_body_classes' );
 
 
 /**
+ * Filters classes for menu items.
+ * @param  array $classes The classes array.
+ * @return array
+ */
+function mindseyesociety_menu_classes( array $classes ) {
+	return array_map( function( $class ) {
+
+		if ( 'menu-item' === $class ) {
+			$class = 'nav__item';
+		} elseif ( 'menu-item-has-children' === $class ) {
+			$class = 'nav__item--children';
+		} else {
+			$class = str_replace( 'menu-item-type-', 'nav__item--', $class ); // Type.
+			$class = preg_replace( '/^menu-item-(\d+)$/', 'nav__item--$1', $class );
+		}
+
+		return $class;
+
+	}, $classes );
+}
+add_filter( 'nav_menu_css_class', 'mindseyesociety_menu_classes' );
+
+
+/**
+ * Filters menu HTML to alter submenu class.
+ * @param  string $nav_menu HTML menu.
+ * @return string
+ */
+function mindseyesociety_menu_html( $nav_menu ) {
+	$nav_menu = str_replace( 'class="sub-menu"', 'class="nav__submenu"', $nav_menu );
+	return $nav_menu;
+}
+add_filter( 'wp_nav_menu', 'mindseyesociety_menu_html' );
+
+
+/**
+ * Adds class to menu links.
+ * @param  array $attributes Attributes.
+ * @return array
+ */
+function mindseyesociety_menu_link_classes( array $attributes ) {
+	$attributes['class'] = 'nav__link';
+	return $attributes;
+}
+add_filter( 'nav_menu_link_attributes', 'mindseyesociety_menu_link_classes' );
+
+
+/**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
  * @param string $title Default title text for current view.

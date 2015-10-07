@@ -1,8 +1,6 @@
 .content
 	@extend $common-container
-
-	@media media-tablet
-		display flex
+	position relative
 
 	&__main,
 	&__widgets
@@ -11,14 +9,14 @@
 		box-shadow inset 0 0 size-gutter rgba(0, 0, 0, 0.1)
 
 	&__main
-		flex-grow 1
-
 		@media media-tablet
-			margin-right size-gutter
+			width unquote( 'calc( 100% - ' + ( size-sidebar + size-border ) + ' )' )
 
 	&__widgets
 		display none
-		flex 0 0 size-sidebar + ( size-gutter * 2 )
+		width size-sidebar
+		absolute top 0 right 0
+		bottom 0
 
 		@media media-tablet
 			display block
