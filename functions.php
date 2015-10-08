@@ -52,6 +52,18 @@ class MindsEyeSociety {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
+		// Removes featured image support, as we don't use it.
+		remove_theme_support( 'post-thumbnails' );
+
+		// Adds custom headers.
+		$args = array(
+			'width'       => 1200,
+			'height'      => 100,
+			'flex-height' => true,
+			'flex-width'  => false,
+		);
+		add_theme_support( 'custom-header', $args );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'mindseyesociety' ),
@@ -151,10 +163,6 @@ class MindsEyeSociety {
 
 	}
 }
-
-
-// Implement the Custom Header feature.
-require get_template_directory() . '/inc/custom-header.php';
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';

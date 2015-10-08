@@ -1,45 +1,69 @@
+// Main layout
 .content
 	@extend $common-container
 	position relative
+	display flex
+	justify-content space-between
+	max-width size-body
 
 	&__main,
 	&__widgets
-		background color-background embedurl( '../../images/noise-50x50.png' )
+		background-color color-background
 		padding size-gutter
 		box-shadow inset 0 0 size-gutter rgba(0, 0, 0, 0.1)
 
 	&__main
+		flex-grow 1
+		min-width 0
+
 		@media media-tablet
-			width unquote( 'calc( 100% - ' + ( size-sidebar + size-border ) + ' )' )
+			margin-right size-border
+
+		&--loop
+			.entry
+				margin size-gutter 0
+				border-bottom 1px solid color-body
+				border-bottom 1px solid alpha( color-body, 20% )
+				padding-bottom size-gutter
+
+				&:first-child
+					margin-top 0
 
 	&__widgets
 		display none
 		width size-sidebar
-		absolute top 0 right 0
-		bottom 0
+		flex-shrink 0
+		// absolute top 0 right 0
+		// bottom 0
 
 		@media media-tablet
 			display block
 
-.main-navigation,
-.site-footer
-	@extend $common-bar
-	margin size-gap 0
 
-	a
-		color color-light
+// Header.
+.header
+	@extends $common-container
+	position relative
 
-.site-branding img
-	display block
-	width auto
-	margin auto
-
-.site-footer
-	text-align center
-	font-size 75%
-
-	a
-		@extend $common-bar-child
-		text-decoration none
+	&__link
 		display block
-		padding size-gap
+
+	&__logo
+		display block
+		margin 0 auto
+
+// Footer.
+.footer
+	@extends $common-container
+	@extends $common-bar
+	margin-top size-border
+	margin-bottom size-gutter
+	color color-light
+	font .9em / 1.5rem font-sans
+
+	&__link
+		@extend $common-bar-child
+		overflow hidden
+		padding size-border size-gutter
+		display block
+		color color-light

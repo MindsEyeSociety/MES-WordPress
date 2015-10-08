@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<main id="main" class="content__main" role="main">
+<main id="main" class="content__main content__main--loop" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -87,15 +87,15 @@ get_header(); ?>
 		// Start the Loop.
 		while ( have_posts() ) {
 			the_post();
-			get_template_part( 'content' );
+			get_template_part( 'templates/content' );
 		}
-		?>
 
-		<?php mindseyesociety_paging_nav(); ?>
+		mindseyesociety_paging_nav();
+		?>
 
 	<?php else : ?>
 
-		<?php get_template_part( 'content', 'none' ); ?>
+		<?php get_template_part( 'templates/content', 'none' ); ?>
 
 	<?php endif; ?>
 

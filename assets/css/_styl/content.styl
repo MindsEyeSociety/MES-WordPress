@@ -1,6 +1,5 @@
 .entry
-	&__header,
-	&__content
+	&__header
 		margin-bottom size-gutter
 
 	&__title
@@ -8,14 +7,30 @@
 		font-family 'IM Fell English', serif
 		font-size 2rem
 
+	&__title,
+	&__content,
+	&__excerpt
+		word-wrap break-word
+
 	&__link
-		color color-dark
+		&,
+		&:visited
+			color color-dark
+
+		&:hover,
+		&:focus
+			color lighten(color-accent, 10%)
 
 	&__meta
 		font-size 80%
 
-	&__content
+	&__content,
+	&__excerpt
 		font-family font-body
+		line-height 1.4
+
+	&__excerpt > p
+		margin 0
 
 .page__title
 	@extend .entry__title

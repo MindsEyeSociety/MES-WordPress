@@ -20,6 +20,23 @@ function mindseyesociety_navigation() {
 
 
 /**
+ * Displays pagination navigation.
+ * @return void
+ */
+function mindseyesociety_paging_nav() {
+
+	// Exit if we only have one page.
+	global $wp_query;
+	if ( $wp_query->max_num_pages < 2 ) {
+		return;
+	}
+
+	get_template_part( 'templates/paging-nav' );
+
+}
+
+
+/**
  * Prints HTML with meta information for the current post-date/time and author.
  *
  * @return void

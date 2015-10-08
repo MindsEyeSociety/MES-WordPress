@@ -23,6 +23,7 @@ size-border  = 5px
 font-body = 'Merriweather', serif
 font-head = 'PT Serif', serif
 font-sans = 'Lucida Sans Unicode', 'Lucida Sans', sans-serif
+font-nav  = 'Century Gothic', Futura, 'URW Gothic L', Verdana, sans-serif
 
 // Colors.
 color-body       = #433d3d
@@ -39,6 +40,9 @@ media-large  = media-base + unquote( '(min-width: 1200px)' )
 media-normal = media-base + unquote( '(min-width: 999px)' )
 media-tablet = media-base + unquote( '(min-width: 750px)' )
 media-mobile = media-base + unquote( '(min-width: 450px)' )
+
+// Include functions.
+@import '_styl/functions.styl'
 
 /**
  * Reset.
@@ -61,50 +65,54 @@ global-reset()
      margin 0 auto
      background-color color-dark
 
+
+ /**
+  * Common styles
+  */
+ @import '_styl/common'
+
+
 /**
  * Typography
  */
 @import '_styl/typography'
+
 
 /**
  * Forms
  */
 @import '_styl/forms'
 
+
 /**
  * Icons
  */
 @import '_styl/icons'
 
-/**
- * Common styles
- */
-@import '_styl/common'
-
-/**
- * Header
- */
-@import '_styl/header'
-
-/**
- * Navigation
- */
-@import '_styl/navigation'
 
 /**
  * Structure
  */
 @import '_styl/structure'
 
+
+/**
+ * Navigation
+ */
+@import '_styl/navigation'
+
+
 /**
  * Content
  */
 @import '_styl/content'
 
+
 /**
  * Widgets
  */
 @import '_styl/widgets'
+
 
 /**
  * Hacks
