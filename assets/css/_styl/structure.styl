@@ -1,6 +1,5 @@
 // Main layout
 .content
-	@extend $common-container
 	position relative
 	display flex
 	-ms-box-pack justify
@@ -43,8 +42,13 @@
 
 // Header.
 .header
-	@extends $common-container
 	position relative
+
+	&__title
+		margin-bottom 0
+
+		@media media-tablet
+			margin-bottom size-gutter
 
 	&__link
 		display block
@@ -53,9 +57,15 @@
 		display block
 		margin 0 auto
 
+	&--sticky
+		padding-bottom size-nav
+
+		.nav
+			position fixed
+			top 0
+
 // Footer.
 .footer
-	@extends $common-container
 	@extends $common-bar
 	margin-top size-border
 	margin-bottom size-gutter

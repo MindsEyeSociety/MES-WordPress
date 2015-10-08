@@ -1,75 +1,129 @@
 // Main navigation.
 .nav
-    @extends $common-bar
-    font 13px 'Century Gothic', Futura, 'URW Gothic L', Verdana, sans-serif
-    margin-bottom size-border
+	@extends $common-bar
+	font 13px 'Century Gothic', Futura, 'URW Gothic L', Verdana, sans-serif
+	width 100%
+	max-height 100%
 
-    &__toggle
-        @media media-tablet
-            display none
+	@media media-tablet
+		margin-bottom size-border
 
-    &__menu,
-    &__submenu
-        list-style none
+	&__toggle
+		border none
+		padding 0
+		height size-nav
+		width @height
+		display block
+		background-color darken( color-accent, 20% )
+		text-align center
 
-    &__menu
-        @extends $common-bar-child
-        padding .25rem
-        clearfix()
+		&,
+		&:hover,
+		&:visited
+			color color-light
 
-    &__menu > &__item
-        float left
-        display block
+		&:before
+			@extend .icon
+			@extend .icon--hamburger:before
+			display block
+			line-height size-nav
+			font-size ( size-nav - 10px )
 
-    &__item--children > &__link:after
-        @extend .icon
-        @extend .icon--arrow-down:before
-        vertical-align middle
+		@media media-tablet
+			display none
 
-        .nav__submenu &
-            @extend .icon--arrow-right:before
-            float right
+	&__menu,
+	&__submenu
+		list-style none
 
-    &__link
-        display block
-        padding .25rem 1rem
-        cursor pointer
+	&__menu
+		clearfix()
+		display none
+		margin 0
+		background-color darken( color-accent, 20% )
+		line-height ( size-nav / 2 )
 
-        &,
-        &:visited,
-        &:hover
-            color color-light
+		@media media-tablet
+			display block
+			margin size-border
+			padding .25rem
+			box-shadow 0 2px 2px rgba( color-dark, 0.8 )
+			background-color color-body
+			border 1px solid darken( color-body, 50% )
+			border-top-color lighten( color-body, 50% )
+			line-height inherit
 
-    &__item:hover
-        background-color color-hover
+	&__menu > &__item
+		display block
 
-    &__submenu
-        width 200px
-        margin 0
-        position absolute
-        background-color color-accent
-        box-shadow 0 3px 3px color-dark
-        display none
-        z-index 1
+		@media media-tablet
+			float left
 
-    &__item:hover > &__submenu
-        display block
+	&__item--children > &__link:after
+		@extend .icon
+		@extend .icon--arrow-down:before
+		vertical-align middle
 
-    &__submenu &__submenu
-        position absolute
-        left 200px
-        top 0
+		@media media-tablet
+			.nav__submenu &
+				content '\e608'
+				float right
 
-        .nav__link:after
-            display none
+	&__link
+		display block
+		padding .25rem 1rem
+		cursor pointer
+
+		&,
+		&:visited,
+		&:hover
+			color color-light
+
+	&__item:hover
+		background-color color-hover
+
+	&__submenu
+		margin 0
+		background-color color-accent
+		display none
+		z-index 1
+
+		@media media-tablet
+			width 200px
+			position absolute
+			box-shadow 0 3px 3px color-dark
+
+	&__item:hover > &__submenu
+		display block
+
+	&__submenu &__submenu
+		@media media-tablet
+			position absolute
+			left 200px
+			top 0
+
+		.nav__link:after
+			display none
+
+	// Mobile navigation.
+	.header--sticky &
+		position fixed
+		top 0
+		z-index 1
+
+	&--toggled &__menu
+		display block
+
+	&--toggled &__toggle
+		color darken( color-accent, 50% )
 
 // Pagination.
 .pagination
-    overflow auto
-    font-family font-nav
+	overflow auto
+	font-family font-nav
 
-    &__prev
-        float left
+	&__prev
+		float left
 
-    &__next
-        float right
+	&__next
+		float right

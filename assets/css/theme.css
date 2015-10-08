@@ -137,22 +137,7 @@ body {
 /**
   * Common styles
   */
-.content,
-.header,
-.footer {
-	margin: 0 5px;
-}
-
-@media only screen and (min-width: 1200px) {
-	.content,
-	.header,
-	.footer {
-		margin: 0;
-	}
-}
-
-.footer__link,
-.nav__menu {
+.footer__link {
 	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.8);
 	box-shadow: 0 2px 2px rgba(0,0,0,0.8);
@@ -164,8 +149,7 @@ body {
 	background-color: #5e0000;
 }
 
-.footer__link,
-.nav__menu {
+.footer__link {
 	margin: 5px;
 	border: 1px solid #221e1e;
 	border-top-color: #a49b9b;
@@ -504,6 +488,7 @@ textarea {
  * Icons
  */
 .icon,
+.nav__toggle:before,
 .nav__item--children > .nav__link:after {
 	font-family: "icomoon";
 	font-weight: normal;
@@ -555,9 +540,13 @@ textarea {
 	content: "\e607";
 }
 
-.icon--arrow-right:before,
-.nav__submenu .nav__item--children > .nav__link:after {
+.icon--arrow-right:before {
 	content: "\e608";
+}
+
+.icon--hamburger:before,
+.nav__toggle:before {
+	content: "\e800";
 }
 
 /**
@@ -637,6 +626,16 @@ textarea {
 	position: relative;
 }
 
+.header__title {
+	margin-bottom: 0;
+}
+
+@media only screen and (min-width: 750px) {
+	.header__title {
+		margin-bottom: 20px;
+	}
+}
+
 .header__link {
 	display: block;
 }
@@ -644,6 +643,15 @@ textarea {
 .header__logo {
 	display: block;
 	margin: 0 auto;
+}
+
+.header--sticky {
+	padding-bottom: 50px;
+}
+
+.header--sticky .nav {
+	position: fixed;
+	top: 0;
 }
 
 .footer {
@@ -664,8 +672,37 @@ textarea {
  * Navigation
  */
 .nav {
-	margin-bottom: 5px;
+	width: 100%;
+	max-height: 100%;
 	font: 13px "Century Gothic", Futura, "URW Gothic L", Verdana, sans-serif;
+}
+
+@media only screen and (min-width: 750px) {
+	.nav {
+		margin-bottom: 5px;
+	}
+}
+
+.nav__toggle {
+	display: block;
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	border: none;
+	background-color: #4b0000;
+	text-align: center;
+}
+
+.nav__toggle,
+.nav__toggle:hover,
+.nav__toggle:visited {
+	color: #fff;
+}
+
+.nav__toggle:before {
+	display: block;
+	font-size: 40px;
+	line-height: 50px;
 }
 
 @media only screen and (min-width: 750px) {
@@ -680,8 +717,11 @@ textarea {
 }
 
 .nav__menu {
+	display: none;
 	zoom: 1;
-	padding: 0.25rem;
+	margin: 0;
+	background-color: #4b0000;
+	line-height: 25px;
 }
 
 .nav__menu:before,
@@ -694,17 +734,40 @@ textarea {
 	clear: both;
 }
 
+@media only screen and (min-width: 750px) {
+	.nav__menu {
+		display: block;
+		margin: 5px;
+		padding: 0.25rem;
+		border: 1px solid #221e1e;
+		border-top-color: #a49b9b;
+		background-color: #433d3d;
+		-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.8);
+		-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.8);
+		box-shadow: 0 2px 2px rgba(0,0,0,0.8);
+		line-height: inherit;
+	}
+}
+
 .nav__menu > .nav__item {
 	display: block;
-	float: left;
+}
+
+@media only screen and (min-width: 750px) {
+	.nav__menu > .nav__item {
+		float: left;
+	}
 }
 
 .nav__item--children > .nav__link:after {
 	vertical-align: middle;
 }
 
-.nav__submenu .nav__item--children > .nav__link:after {
-	float: right;
+@media only screen and (min-width: 750px) {
+	.nav__submenu .nav__item--children > .nav__link:after {
+		float: right;
+		content: "\e608";
+	}
 }
 
 .nav__link {
@@ -725,28 +788,49 @@ textarea {
 
 .nav__submenu {
 	display: none;
-	position: absolute;
 	z-index: 1;
-	width: 200px;
 	margin: 0;
 	background-color: #5e0000;
-	-webkit-box-shadow: 0 3px 3px #000;
-	-moz-box-shadow: 0 3px 3px #000;
-	box-shadow: 0 3px 3px #000;
+}
+
+@media only screen and (min-width: 750px) {
+	.nav__submenu {
+		position: absolute;
+		width: 200px;
+		-webkit-box-shadow: 0 3px 3px #000;
+		-moz-box-shadow: 0 3px 3px #000;
+		box-shadow: 0 3px 3px #000;
+	}
 }
 
 .nav__item:hover > .nav__submenu {
 	display: block;
 }
 
-.nav__submenu .nav__submenu {
-	position: absolute;
-	top: 0;
-	left: 200px;
+@media only screen and (min-width: 750px) {
+	.nav__submenu .nav__submenu {
+		position: absolute;
+		top: 0;
+		left: 200px;
+	}
 }
 
 .nav__submenu .nav__submenu .nav__link:after {
 	display: none;
+}
+
+.header--sticky .nav {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+}
+
+.nav--toggled .nav__menu {
+	display: block;
+}
+
+.nav--toggled .nav__toggle {
+	color: #2f0000;
 }
 
 .pagination {

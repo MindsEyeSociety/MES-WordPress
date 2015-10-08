@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 
 <header id="masthead" class="header" role="banner">
-	<div class="header__branding">
+	<div class="header__branding" id="branding">
 		<?php if ( get_header_image() ) : ?>
 
 			<h1 class="header__title">
@@ -42,7 +42,7 @@
 	</div>
 
 	<nav id="site-navigation" class="nav" role="navigation">
-		<button class="nav__toggle"><?php esc_html_e( 'Primary Menu', 'mindseyesociety' ); ?></button>
+		<a class="nav__toggle" id="navigation-toggle"></a>
 		<?php mindseyesociety_navigation(); ?>
 	</nav><!-- #site-navigation -->
 </header><!-- #masthead -->
