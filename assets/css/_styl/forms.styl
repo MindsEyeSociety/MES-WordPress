@@ -39,8 +39,6 @@ input[type='search']
 	/* Addresses appearance set to searchfield in S5, Chrome */
 	-webkit-appearance textfield
 	-moz-appearance textfield
-	/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	box-sizing content-box
 
 /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 input[type='search']::-webkit-search-decoration
@@ -69,7 +67,8 @@ input[type='url'],
 input[type='password'],
 input[type='search']
 select
-	padding 3px
+	line-height 1.6
+	padding size-border
 
 select
 	background-color color-light

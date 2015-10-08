@@ -422,12 +422,7 @@ input[type="radio"] {
 }
 
 input[type="search"] {
-	/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
 	/* Addresses appearance set to searchfield in S5, Chrome */
-
 	-webkit-appearance: textfield;
 	-moz-appearance: textfield;
 }
@@ -468,7 +463,8 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 select {
-	padding: 3px;
+	padding: 5px;
+	line-height: 1.6;
 }
 
 select {
@@ -970,7 +966,7 @@ object {
 }
 
 .widget_search .search-field {
-	width: 294px;
+	width: 260px;
 }
 
 .widget_search .search-submit {
