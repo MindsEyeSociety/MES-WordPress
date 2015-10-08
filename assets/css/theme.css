@@ -649,9 +649,10 @@ textarea {
 	padding-bottom: 50px;
 }
 
-.header--sticky .nav {
-	position: fixed;
-	top: 0;
+@media only screen and (min-width: 750px) {
+	.header--sticky {
+		padding-bottom: 0;
+	}
 }
 
 .footer {
@@ -823,6 +824,12 @@ textarea {
 	position: fixed;
 	z-index: 1;
 	top: 0;
+}
+
+@media only screen and (min-width: 750px) {
+	.header--sticky .nav {
+		position: static;
+	}
 }
 
 .nav--toggled .nav__menu {

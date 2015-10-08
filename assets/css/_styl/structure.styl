@@ -33,8 +33,6 @@
 		display none
 		width size-sidebar
 		flex-shrink 0
-		// absolute top 0 right 0
-		// bottom 0
 
 		@media media-tablet
 			display block
@@ -60,9 +58,8 @@
 	&--sticky
 		padding-bottom size-nav
 
-		.nav
-			position fixed
-			top 0
+		@media media-tablet
+			padding-bottom 0
 
 // Footer.
 .footer
