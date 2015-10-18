@@ -25,18 +25,13 @@
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'nav--toggled' ) ) {
-			container.className = container.className.replace( ' nav--toggled', '' );
-		} else {
-			container.className += ' nav--toggled';
-		}
+		container.classList.toggle( 'nav--toggled' );
 	};
 
 	// Add sticky behavior for navigation.
 	stickHeight = document.getElementById( 'branding' ).offsetHeight;
 	header      = document.getElementById( 'masthead' );
 	if ( document.body.classList.contains( 'admin-bar' ) ) {
-		console.log( document.getElementById( 'wpadminbar' ) );
 		stickHeight += 46;
 	}
 	window.addEventListener( 'scroll', function() {

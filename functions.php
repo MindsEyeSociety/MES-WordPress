@@ -34,6 +34,9 @@ class MindsEyeSociety {
 		// Enqueues the scripts.
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
+		// Wraps scripts in IE conditionals.
+		add_filter( 'script_loader_tag',  array( $this, 'script_tag' ), 10, 2 );
+
 		// Customizes excerpt.
 		add_filter( 'excerpt_more',       array( $this, 'excerpt_more' ) );
 	}
@@ -118,6 +121,11 @@ class MindsEyeSociety {
 		// Main stylesheet.
 		wp_enqueue_style( 'mindseyesociety-style', $root . 'css/theme.css', array( 'mindseyesociety-fonts' ) );
 
+		// IE Compatibility.
+		wp_enqueue_script( 'shim-event-listeners', 'https://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.9/ie8.js', array(), '' );
+		wp_enqueue_script( 'shim-html5', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js', array(), '' );
+		wp_enqueue_script( 'shim-class-list', 'https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js', array(), '' );
+
 		wp_enqueue_script( 'mindseyesociety-navigation', $root . 'js/navigation.js', array(), '20120206', true );
 
 		wp_enqueue_script( 'mindseyesociety-skip-link-focus-fix', $root . 'js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -126,6 +134,23 @@ class MindsEyeSociety {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+	}
+
+
+	/**
+	 * Wraps script tags with IE conditionals.
+	 * @param  string $tag    The script HTML.
+	 * @param  string $handle Script handle.
+	 * @return string
+	 */
+	public function script_tag( $tag, $handle ) {
+
+		if ( 0 === strpos( $handle, 'shim' ) ) {
+			$tag = sprintf( '<!--[if IE]>%s<![endif]-->', $tag );
+		}
+
+		return $tag;
+
 	}
 
 
