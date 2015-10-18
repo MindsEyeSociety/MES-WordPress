@@ -12,7 +12,7 @@
 	curItem  = 1;
 	maxItems = document.getElementsByClassName( 'carousel__item' ).length;
 
-	if ( ! maxItems ) {
+	if ( maxItems <= 1 ) {
 		return;
 	}
 
