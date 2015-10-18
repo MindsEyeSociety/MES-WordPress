@@ -9,6 +9,8 @@ get_header(); ?>
 
 <main id="main" class="content__main" role="main">
 
+	<?php do_action( 'page_before_loop' ); ?>
+
 	<?php
 	while ( have_posts() ) {
 		the_post();

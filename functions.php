@@ -5,6 +5,8 @@
  * @package mindseyesociety
  */
 
+namespace MindsEyeSociety;
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -15,7 +17,7 @@ if ( ! isset( $content_width ) ) {
 /**
  * Main theme class.
  */
-class MindsEyeSociety {
+class Main {
 
 	/**
 	 * Constructor.
@@ -114,7 +116,7 @@ class MindsEyeSociety {
 
 		// Sets root path.
 		$root = get_template_directory_uri() . '/assets/';
-		if ( class_exists( 'Roots_Rewrites' ) ) {
+		if ( class_exists( '\Roots_Rewrites' ) ) {
 			$root = '/assets/';
 		}
 
@@ -198,5 +200,8 @@ require get_template_directory() . '/inc/extras.php';
 // Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
+// Optional carousel module.
+require get_template_directory() . '/inc/carousel.php';
+
 // Start the magic!
-new MindsEyeSociety();
+new Main();

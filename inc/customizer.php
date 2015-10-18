@@ -18,6 +18,17 @@ function mindseyesociety_customize_register( WP_Customize_Manager $wp_customize 
 
 	// We don't need no stinkin' colors.
 	$wp_customize->remove_section( 'colors' );
+
+	// Adds toggle for front page carousel.
+	$wp_customize->add_setting( 'show_carousel', array(
+		'default'  => false,
+	) );
+	$wp_customize->add_control( 'show_carousel', array(
+		'label'    => __( 'Show Homepage Carousel', 'mindseyesociety' ),
+		'section'  => 'static_front_page',
+		'settings' => 'show_carousel',
+		'type'     => 'checkbox',
+	) );
 }
 add_action( 'customize_register', 'mindseyesociety_customize_register' );
 
@@ -27,6 +38,12 @@ add_action( 'customize_register', 'mindseyesociety_customize_register' );
  * @return void
  */
 function mindseyesociety_customize_preview_js() {
-	wp_enqueue_script( 'mindseyesociety_customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script(
+		'mindseyesociety_customizer',
+		get_template_directory_uri() . '/assets/js/customizer.js',
+		array( 'customize-preview' ),
+		'20130508',
+		true
+	);
 }
 add_action( 'customize_preview_init', 'mindseyesociety_customize_preview_js' );
