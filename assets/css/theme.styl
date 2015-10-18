@@ -10,40 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mindseyesociety
 */
 
-// Static variables and styles.
-
-// Sizing and padding.
-size-body    = 1200px // Total max size of content.
-size-gutter  = 20px // Standard gutter size.
-size-sidebar = 300px // Sidebar width.
-size-main    = size-body - ( size-gutter * 3 ) - size-sidebar // Max width of main content.
-size-border  = 5px
-size-nav     = 50px
-
-// Fonts.
-font-body = 'Merriweather', serif
-font-head = 'PT Serif', serif
-font-sans = 'Lucida Sans Unicode', 'Lucida Sans', sans-serif
-font-nav  = 'Century Gothic', Futura, 'URW Gothic L', Verdana, sans-serif
-
-// Colors.
-color-body       = #433d3d
-color-head       = #000
-color-background = #e6d099
-color-accent     = #5e0000
-color-light      = #fff
-color-dark       = color-head
-color-hover      = #94474d
-
-// Media queries.
-media-base = unquote( 'only screen and ' )
-media-large  = media-base + unquote( '(min-width: 1200px)' )
-media-normal = media-base + unquote( '(min-width: 999px)' )
-media-tablet = media-base + unquote( '(min-width: 750px)' )
-media-mobile = media-base + unquote( '(min-width: 450px)' )
-
-// Include functions.
-@import '_styl/functions.styl'
+// Variables and functions.
+@import '_styl/variables'
 
 /**
  * Reset.
