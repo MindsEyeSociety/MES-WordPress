@@ -480,6 +480,23 @@ textarea {
 	vertical-align: top;
 }
 
+.page-button {
+	padding: 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #e6d099;
+	background-color: #5e0000;
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	-ms-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+}
+
+.page-button:hover {
+	background-color: #000;
+}
+
 /**
  * Icons
  */
