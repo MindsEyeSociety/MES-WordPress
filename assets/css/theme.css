@@ -276,6 +276,7 @@ td {
 	padding: 10px 0;
 	border-top: 1px solid #433d3d;
 	border-top: 1px solid rgba(67,61,61,0.2);
+	vertical-align: top;
 }
 
 legend {
