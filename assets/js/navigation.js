@@ -4,6 +4,8 @@
  * Handles toggling the navigation menu for small screens.
  */
 (function() {
+	'use strict';
+
 	var container, button, menu, stickHeight, header;
 
 	container = document.getElementById( 'site-navigation' );

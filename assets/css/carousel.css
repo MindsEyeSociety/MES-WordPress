@@ -1,0 +1,70 @@
+/*
+Carousel styles. Only loaded on a page with the carousel.
+*/
+.carousel {
+	overflow: hidden;
+	margin: -20px -20px 20px;
+	border-bottom: 5px solid #000;
+}
+
+.carousel__wrapper {
+	overflow: hidden;
+	position: relative;
+	width: 1000%;
+	background-color: #000;
+	-webkit-transition: left 0.5s ease;
+	-moz-transition: left 0.5s ease;
+	-ms-transition: left 0.5s ease;
+	-o-transition: left 0.5s ease;
+	transition: left 0.5s ease;
+}
+
+.carousel__wrapper--show-1 {
+	left: 0;
+}
+
+.carousel__wrapper--show-2 {
+	left: -100%;
+}
+
+.carousel__wrapper--show-3 {
+	left: -200%;
+}
+
+.carousel__wrapper--show-4 {
+	left: -300%;
+}
+
+.carousel__wrapper--show-5 {
+	left: -400%;
+}
+
+.carousel__wrapper--show-6 {
+	left: -500%;
+}
+
+.carousel__wrapper--show-7 {
+	left: -600%;
+}
+
+.carousel__wrapper--show-8 {
+	left: -700%;
+}
+
+.carousel__wrapper--show-9 {
+	left: -800%;
+}
+
+.carousel__wrapper--show-10 {
+	left: -900%;
+}
+
+.carousel__item,
+.carousel__image {
+	display: block;
+}
+
+.carousel__item {
+	float: left;
+	width: 10%;
+}

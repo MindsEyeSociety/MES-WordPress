@@ -29,8 +29,10 @@ class Carousel {
 			return;
 		}
 
-		add_action( 'page_before_loop', array( $this, 'display' ) );
+		add_action( 'page_before_loop',   array( $this, 'display' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
+		// Sets admin up.
 		fm_register_submenu_page( self::OPTION, 'themes.php', 'Carousel' );
 		add_action( 'fm_submenu_' . self::OPTION, array( $this, 'settings' ) );
 
@@ -43,17 +45,11 @@ class Carousel {
 	 */
 	public function display() {
 
-		// On front page only, please.
-		if ( ! is_front_page() ) {
+		if ( ! $this->is_active() ) {
 			return;
 		}
 
 		$items = get_option( self::OPTION );
-
-		// Bail if there's no items.
-		if ( ! $items ) {
-			return;
-		}
 
 		// Map the target type.
 		$items = array_map( function( $item ) {
@@ -63,6 +59,45 @@ class Carousel {
 
 		// Gets the carousel template.
 		require get_template_directory() . '/templates/carousel.php';
+
+	}
+
+
+	/**
+	 * Loads the styles and scripts.
+	 * @return void
+	 */
+	public function scripts() {
+
+		if ( ! $this->is_active() ) {
+			return;
+		}
+
+		$root = get_template_directory_uri() . '/assets/';
+		if ( class_exists( '\Roots_Rewrites' ) ) {
+			$root = '/assets/';
+		}
+
+		wp_enqueue_style( 'mindseyesociety-carousel', $root . 'css/carousel.css', array( 'mindseyesociety-style' ) );
+
+		wp_enqueue_script( 'mindseyesociety-carousel', $root . 'js/carousel.js', array(), '20151018', true );
+
+	}
+
+
+	/**
+	 * Returns true if the carousel should be displayed.
+	 * @return boolean
+	 */
+	protected function is_active() {
+
+		$items = get_option( self::OPTION );
+
+		if ( $items && is_front_page() ) {
+			return true;
+		}
+
+		return false;
 
 	}
 

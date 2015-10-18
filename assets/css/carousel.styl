@@ -1,0 +1,28 @@
+/*
+Carousel styles. Only loaded on a page with the carousel.
+*/
+@import '_styl/variables'
+
+.carousel
+	margin ( size-gutter * -1 ) ( size-gutter * -1 ) size-gutter
+	border-bottom size-border solid color-dark
+	overflow hidden
+
+	&__wrapper
+		width 1000%
+		position relative
+		overflow hidden
+		transition left 0.5s ease
+		background-color color-dark
+
+		for item in range( 1, 10 )
+			&--show-{item}
+				left ( -100% * ( item - 1 ) )
+
+	&__item,
+	&__image
+		display block
+
+	&__item
+		float left
+		width 10%
