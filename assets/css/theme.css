@@ -494,7 +494,8 @@ textarea {
 	transition: background-color 0.3s ease;
 }
 
-.page-button:hover {
+.page-button:hover,
+.page-button:active {
 	background-color: #000;
 }
 
