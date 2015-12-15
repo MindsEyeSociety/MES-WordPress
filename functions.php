@@ -83,6 +83,12 @@ class Main {
 			'caption',
 		) );
 
+		// Enables title tag.
+		add_theme_support( 'title-tag' );
+		add_filter( 'document_title_separator', function() {
+			return '|';
+		} );
+
 	}
 
 
