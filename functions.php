@@ -209,5 +209,8 @@ require get_template_directory() . '/inc/customizer.php';
 // Optional carousel module.
 require get_template_directory() . '/inc/carousel.php';
 
+// Multi-site events widget.
+require get_template_directory() . '/inc/events.php';
+
 // Start the magic!
 new Main();
