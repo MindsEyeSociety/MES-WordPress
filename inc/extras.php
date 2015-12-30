@@ -93,14 +93,20 @@ add_filter( 'wp_nav_menu', 'mindseyesociety_menu_html' );
 
 /**
  * Adds class to menu links.
- * @param  array $attributes Attributes.
+ * @param  array  $attributes Attributes.
+ * @param  object $item       Post object.
  * @return array
  */
-function mindseyesociety_menu_link_classes( array $attributes ) {
+function mindseyesociety_menu_link_classes( array $attributes, $item ) {
 	$attributes['class'] = 'nav__link';
+
+	if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		unset( $attributes['href'] );
+	}
+
 	return $attributes;
 }
-add_filter( 'nav_menu_link_attributes', 'mindseyesociety_menu_link_classes' );
+add_filter( 'nav_menu_link_attributes', 'mindseyesociety_menu_link_classes', 10, 2 );
 
 
 /**

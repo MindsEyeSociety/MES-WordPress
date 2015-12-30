@@ -83,6 +83,12 @@ class Main {
 			'caption',
 		) );
 
+		// Enables title tag.
+		add_theme_support( 'title-tag' );
+		add_filter( 'document_title_separator', function() {
+			return '|';
+		} );
+
 	}
 
 
@@ -202,6 +208,9 @@ require get_template_directory() . '/inc/customizer.php';
 
 // Optional carousel module.
 require get_template_directory() . '/inc/carousel.php';
+
+// Multi-site events widget.
+require get_template_directory() . '/inc/events.php';
 
 // Start the magic!
 new Main();
