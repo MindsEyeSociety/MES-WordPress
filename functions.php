@@ -30,6 +30,9 @@ class Main {
 		// Set up everything.
 		add_action( 'after_setup_theme',  array( $this, 'setup' ) );
 
+		// Loads the libraries.
+		add_action( 'init',               array( $this, 'init' ) );
+
 		// Initializes the widgets.
 		add_action( 'widgets_init',       array( $this, 'widgets_init' ) );
 
@@ -88,6 +91,21 @@ class Main {
 		add_filter( 'document_title_separator', function() {
 			return '|';
 		} );
+
+	}
+
+
+	/**
+	 * Loads libraries and other init functions.
+	 * @return void
+	 */
+	public function init() {
+
+		$lib_root = get_template_directory() . '/lib/';
+
+		if ( file_exists( $lib_root . '/multisite-query/index.php' ) ) {
+			require_once $lib_root . '/multisite-query/index.php';
+		}
 
 	}
 

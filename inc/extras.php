@@ -43,19 +43,6 @@ add_filter( 'wp_title', 'mindseyesociety_wp_title', 10, 2 );
 
 
 /**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- *
- * @return array
- */
-function mindseyesociety_body_classes( array $classes ) {
-	return $classes;
-}
-add_filter( 'body_class', 'mindseyesociety_body_classes' );
-
-
-/**
  * Filters classes for menu items.
  * @param  array $classes The classes array.
  * @return array
@@ -144,3 +131,16 @@ function mindseyesociety_remove_w3tc() {
 	}
 }
 add_action( 'admin_menu', 'mindseyesociety_remove_w3tc', 11 );
+
+
+/**
+ * Makes search run across entire network.
+ * @param  WP_Query $query The query object.
+ * @return void
+ */
+function mindseyesociety_search_multisite( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_search ) {
+		$query->set( 'multisite', 1 );
+	}
+}
+add_action( 'pre_get_posts', 'mindseyesociety_search_multisite' );
