@@ -29,23 +29,24 @@ PHP
 	echo "Installing WordPress Multisite Subdomain Stable..."
 	wp core multisite-install --allow-root --url=mes.dev --subdomains --quiet --title="Mind's Eye Society" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
 
-	# Create sites 2-9
+	# Create sites
 	wp site create --allow-root --slug=events --title="Events" --email="admin@local.dev" --quiet --allow-root
 	wp site create --allow-root --slug=volunteer --title="Volunteer" --email="admin@local.dev" --quiet --allow-root
 	wp site create --allow-root --slug=games --title="Games" --email="admin@local.dev" --quiet --allow-root
 	wp site create --allow-root --slug=education --title="Education" --email="admin@local.dev" --quiet --allow-root
 
-	# Removes unused themes.
+	# Removes unused themes
 	wp theme delete twentyfifteen twentyfourteen --allow-root
 
-	# Installs plugins.
+	# Installs plugins
 	wp plugin install jetpack regenerate-thumbnails developer debug-bar debug-bar-console debug-bar-extender events-manager rewrite-rules-inspector user-switching wordpress-importer --activate-network --allow-root
 	wp plugin install https://github.com/alleyinteractive/wordpress-fieldmanager/archive/master.zip --allow-root
 	mv wp-content/plugins/wordpress-fieldmanager-master wp-content/plugins/fieldmanager
 	wp plugin activate fieldmanager --network --allow-root
 
 	# Installs theme
-	git clone https://github.com/MindsEyeSociety/MES-WordPress.git mindseyesociety --recursive
+	git -C mindseyesociety submodule update --init --recursive
+	mv mindseyesociety wp-content/themes/mindseyesociety
 	wp theme enable mindseyesociety --network --activate --allow-root
 
 else
