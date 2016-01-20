@@ -1,0 +1,3 @@
+[submodule "lib/multisite-query"]
+	path = lib/multisite-query
+	url = https://github.com/ChaosExAnima/WP_Query_Multisite.git
