@@ -499,6 +499,10 @@ textarea {
 	transition: background-color 0.3s ease;
 }
 
+.page-button:visited {
+	color: #e6d099;
+}
+
 .page-button:hover,
 .page-button:active {
 	background-color: #000;
