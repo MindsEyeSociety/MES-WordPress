@@ -174,7 +174,7 @@ h2 {
 }
 
 h3 {
-	font-size: 120%;
+	font-size: 110%;
 }
 
 h1,
@@ -194,6 +194,7 @@ i {
 
 p {
 	margin: 1rem 0;
+	line-height: 1.75rem;
 }
 
 a {
@@ -492,6 +493,10 @@ textarea {
 	-ms-transition: background-color 0.3s ease;
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
+}
+
+.page-button:visited {
+	color: #e6d099;
 }
 
 .page-button:hover,
