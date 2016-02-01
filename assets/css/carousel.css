@@ -3,6 +3,7 @@ Carousel styles. Only loaded on a page with the carousel.
 */
 .carousel {
 	overflow: hidden;
+	max-height: 350px;
 	margin: -20px -20px 20px;
 	border-bottom: 5px solid #000;
 }
