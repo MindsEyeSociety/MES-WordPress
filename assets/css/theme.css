@@ -144,7 +144,7 @@ body {
 }
 
 .footer,
-.header__branding .nav {
+.nav {
 	overflow: auto;
 	background-color: #5e0000;
 }
@@ -508,8 +508,8 @@ textarea {
  * Icons
  */
 .icon,
-.header__branding .nav__toggle:before,
-.header__branding .nav__item--children > .header__branding .nav__link:after {
+.nav__toggle:before,
+.nav__item--children > .nav__link:after {
 	font-family: "icomoon";
 	font-weight: normal;
 	font-style: normal;
@@ -552,7 +552,7 @@ textarea {
 }
 
 .icon--arrow-down:before,
-.header__branding .nav__item--children > .header__branding .nav__link:after {
+.nav__item--children > .nav__link:after {
 	content: "\e606";
 }
 
@@ -565,7 +565,7 @@ textarea {
 }
 
 .icon--hamburger:before,
-.header__branding .nav__toggle:before {
+.nav__toggle:before {
 	content: "\e800";
 }
 
@@ -692,19 +692,19 @@ textarea {
 /**
  * Navigation
  */
-.header__branding .nav {
+.nav {
 	width: 100%;
 	max-height: 100%;
 	font: 13px "Century Gothic", Futura, "URW Gothic L", Verdana, sans-serif;
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav {
+	.nav {
 		margin-bottom: 5px;
 	}
 }
 
-.header__branding .nav__toggle {
+.nav__toggle {
 	display: block;
 	width: 50px;
 	height: 50px;
@@ -714,30 +714,30 @@ textarea {
 	text-align: center;
 }
 
-.header__branding .nav__toggle,
-.header__branding .nav__toggle:hover,
-.header__branding .nav__toggle:visited {
+.nav__toggle,
+.nav__toggle:hover,
+.nav__toggle:visited {
 	color: #fff;
 }
 
-.header__branding .nav__toggle:before {
+.nav__toggle:before {
 	display: block;
 	font-size: 40px;
 	line-height: 50px;
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav__toggle {
+	.nav__toggle {
 		display: none;
 	}
 }
 
-.header__branding .nav__menu,
-.header__branding .nav__submenu {
+.nav__menu,
+.nav__submenu {
 	list-style: none;
 }
 
-.header__branding .nav__menu {
+.nav__menu {
 	display: none;
 	zoom: 1;
 	margin: 0;
@@ -745,18 +745,18 @@ textarea {
 	line-height: 25px;
 }
 
-.header__branding .nav__menu:before,
-.header__branding .nav__menu:after {
+.nav__menu:before,
+.nav__menu:after {
 	display: table;
 	content: "";
 }
 
-.header__branding .nav__menu:after {
+.nav__menu:after {
 	clear: both;
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav__menu {
+	.nav__menu {
 		display: block;
 		margin: 5px;
 		padding: 0.25rem;
@@ -770,52 +770,52 @@ textarea {
 	}
 }
 
-.header__branding .nav__menu > .header__branding .nav__item {
+.nav__menu > .nav__item {
 	display: block;
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav__menu > .header__branding .nav__item {
+	.nav__menu > .nav__item {
 		float: left;
 	}
 }
 
-.header__branding .nav__item--children > .header__branding .nav__link:after {
+.nav__item--children > .nav__link:after {
 	vertical-align: middle;
 }
 
 @media only screen and (min-width: 750px) {
-	.nav__submenu .header__branding .nav__item--children > .header__branding .nav__link:after {
+	.nav__submenu .nav__item--children > .nav__link:after {
 		float: right;
 		content: "\e608";
 	}
 }
 
-.header__branding .nav__link {
+.nav__link {
 	display: block;
 	padding: 0.25rem 1rem;
 	cursor: pointer;
 }
 
-.header__branding .nav__link,
-.header__branding .nav__link:visited,
-.header__branding .nav__link:hover {
+.nav__link,
+.nav__link:visited,
+.nav__link:hover {
 	color: #fff;
 }
 
-content__widgets .header__branding .nav__link {
+content__widgets .nav__link {
 	color: #5e0000;
 }
 
-.header__branding .nav__item:hover {
+.nav__item:hover {
 	background-color: #94474d;
 }
 
-content__widgets .header__branding .nav__item:hover {
+content__widgets .nav__item:hover {
 	background-color: transparent;
 }
 
-.header__branding .nav__submenu {
+.nav__submenu {
 	display: none;
 	z-index: 1;
 	margin: 0;
@@ -823,7 +823,7 @@ content__widgets .header__branding .nav__item:hover {
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav__submenu {
+	.nav__submenu {
 		position: absolute;
 		width: 200px;
 		-webkit-box-shadow: 0 3px 3px #000;
@@ -832,39 +832,39 @@ content__widgets .header__branding .nav__item:hover {
 	}
 }
 
-.header__branding .nav__item:hover > .header__branding .nav__submenu {
+.nav__item:hover > .nav__submenu {
 	display: block;
 }
 
 @media only screen and (min-width: 750px) {
-	.header__branding .nav__submenu .header__branding .nav__submenu {
+	.nav__submenu .nav__submenu {
 		position: absolute;
 		top: 0;
 		left: 200px;
 	}
 }
 
-.header__branding .nav__submenu .header__branding .nav__submenu .nav__link:after {
+.nav__submenu .nav__submenu .nav__link:after {
 	display: none;
 }
 
-.header--sticky .header__branding .nav {
+.header--sticky .nav {
 	position: fixed;
 	z-index: 1;
 	top: 0;
 }
 
 @media only screen and (min-width: 750px) {
-	.header--sticky .header__branding .nav {
+	.header--sticky .nav {
 		position: static;
 	}
 }
 
-.header__branding .nav--toggled .header__branding .nav__menu {
+.nav--toggled .nav__menu {
 	display: block;
 }
 
-.header__branding .nav--toggled .header__branding .nav__toggle {
+.nav--toggled .nav__toggle {
 	color: #2f0000;
 }
 
