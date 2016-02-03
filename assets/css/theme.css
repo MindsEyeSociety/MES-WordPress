@@ -177,10 +177,6 @@ h3 {
 	font-size: 110%;
 }
 
-h3 {
-	font-size: 110%;
-}
-
 h1,
 h2,
 h3,
@@ -225,7 +221,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 1.5em;
 }
 
 ul {
@@ -807,8 +803,16 @@ textarea {
 	color: #fff;
 }
 
+content__widgets .nav__link {
+	color: #5e0000;
+}
+
 .nav__item:hover {
 	background-color: #94474d;
+}
+
+content__widgets .nav__item:hover {
+	background-color: transparent;
 }
 
 .nav__submenu {
