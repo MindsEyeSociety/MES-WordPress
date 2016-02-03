@@ -803,7 +803,9 @@ textarea {
 	color: #fff;
 }
 
-content__widgets .nav__link {
+.content__widgets .nav__link {
+	margin: 0.25rem 0;
+	padding: 0;
 	color: #5e0000;
 }
 
@@ -811,7 +813,7 @@ content__widgets .nav__link {
 	background-color: #94474d;
 }
 
-content__widgets .nav__item:hover {
+.content__widgets .nav__item:hover {
 	background-color: transparent;
 }
 
