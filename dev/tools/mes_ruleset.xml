@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="MES Rules">
+
+	<description>Mind's Eye Society ruleset.</description>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd" />
+	</rule>
+
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+	<rule ref="Generic.Commenting.Todo"/>
+	<rule ref="Generic.PHP.DeprecatedFunctions"/>
+	<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+
+	<rule ref="Squiz.Scope.MethodScope"/>
+
+	<rule ref="Squiz.Commenting">
+		<exclude name="Squiz.Commenting.FileComment" />
+		<exclude name="Squiz.Commenting.ClassComment" />
+		<exclude name="Squiz.Commenting.ClosingDeclarationComment" />
+		<exclude name="Squiz.Commenting.FunctionComment.SpacingBeforeTags" />
+		<exclude name="Squiz.Commenting.FunctionComment.SpacingBeforeParamType" />
+		<exclude name="Squiz.Commenting.BlockComment.FirstLineIndent" />
+		<exclude name="Squiz.Commenting.BlockComment.LineIndent" />
+		<exclude name="Squiz.Commenting.PostStatementComment.Found" />
+		<exclude name="Squiz.Commenting.VariableComment" />
+	</rule>
+
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<exclude name="PEAR.Functions.FunctionCallSignature.EmptyLine" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+	</rule>
+
+</ruleset>
