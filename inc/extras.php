@@ -144,3 +144,16 @@ function mindseyesociety_search_multisite( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'mindseyesociety_search_multisite' );
+
+
+/**
+ * Fixes sender from WordPress.
+ * @param  mixed $params Sent object.
+ * @return void
+ */
+function mindseyesociety_fix_mail( $params ) {
+	if ( true !== filter_var( $params->Sender, FILTER_VALIDATE_EMAIL ) ) {
+		$params->Sender = $params->From;
+	}
+}
+add_action( 'phpmailer_init', 'mindseyesociety_fix_mail' );

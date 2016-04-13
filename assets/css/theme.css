@@ -174,7 +174,7 @@ h2 {
 }
 
 h3 {
-	font-size: 120%;
+	font-size: 110%;
 }
 
 h1,
@@ -194,6 +194,7 @@ i {
 
 p {
 	margin: 1rem 0;
+	line-height: 1.75rem;
 }
 
 a {
@@ -220,7 +221,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 1.5em;
 }
 
 ul {
@@ -492,6 +493,10 @@ textarea {
 	-ms-transition: background-color 0.3s ease;
 	-o-transition: background-color 0.3s ease;
 	transition: background-color 0.3s ease;
+}
+
+.page-button:visited {
+	color: #e6d099;
 }
 
 .page-button:hover,
@@ -798,8 +803,18 @@ textarea {
 	color: #fff;
 }
 
+.content__widgets .nav__link {
+	margin: 0.25rem 0;
+	padding: 0;
+	color: #5e0000;
+}
+
 .nav__item:hover {
 	background-color: #94474d;
+}
+
+.content__widgets .nav__item:hover {
+	background-color: transparent;
 }
 
 .nav__submenu {
@@ -980,6 +995,10 @@ object {
 	font: 700 0.8rem "Lucida Sans Unicode", "Lucida Sans", sans-serif;
 }
 
+.error-404 .widget {
+	margin-top: 1.5rem;
+}
+
 .widget select {
 	width: 100%;
 }
@@ -1029,4 +1048,10 @@ object {
 	font-weight: bold;
 	line-height: normal;
 	text-decoration: none;
+}
+
+.widecolumn {
+	width: 100%;
+	padding: 20px;
+	background-color: #e6d099;
 }
