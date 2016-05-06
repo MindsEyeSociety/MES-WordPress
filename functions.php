@@ -198,6 +198,7 @@ class Main {
 		$role = get_role( 'administrator' );
 		$role->remove_cap( 'activate_plugins' );
 		$role->remove_cap( 'switch_themes' );
+		$role->add_cap( 'manage_network_users' );
 
 	}
 
@@ -211,6 +212,7 @@ class Main {
 		$role = get_role( 'administrator' );
 		$role->add_cap( 'activate_plugins' );
 		$role->add_cap( 'switch_themes' );
+		$role->remove_cap( 'manage_network_users' );
 
 	}
 }
