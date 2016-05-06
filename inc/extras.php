@@ -157,3 +157,10 @@ function mindseyesociety_fix_mail( $params ) {
 	}
 }
 add_action( 'phpmailer_init', 'mindseyesociety_fix_mail' );
+
+
+/**
+ * Allows admins to use the autocomplete system for adding users.
+ * @see user-new.php
+ */
+add_filter( 'autocomplete_users_for_site_admins', '__return_true' );
