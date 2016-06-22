@@ -232,5 +232,8 @@ require get_template_directory() . '/inc/carousel.php';
 // Multi-site events widget.
 require get_template_directory() . '/inc/events.php';
 
+// Multi-site analytics logic.
+require get_template_directory() . '/inc/analytics.php';
+
 // Start the magic!
 new Main();
