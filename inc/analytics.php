@@ -69,6 +69,6 @@ function mindsyesociety_ga_save() {
 		return;
 	}
 
-	update_site_option( 'mes-event-site', sanitize_text_field( $option ) );
+	update_site_option( 'mes-ga-id', sanitize_text_field( $option ) );
 }
 add_action( 'update_wpmu_options', 'mindsyesociety_ga_save' );
