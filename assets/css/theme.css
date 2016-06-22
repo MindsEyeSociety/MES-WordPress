@@ -1049,3 +1049,9 @@ object {
 	line-height: normal;
 	text-decoration: none;
 }
+
+.widecolumn {
+	width: 100%;
+	padding: 20px;
+	background-color: #e6d099;
+}
