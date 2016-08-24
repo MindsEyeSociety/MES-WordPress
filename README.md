@@ -2,12 +2,6 @@
 Wordpress theme for the Mind's Eye Society website.
 
 ## Development environment
-The recommended environment for WP development is using [VVV](https://github.com/Varying-Vagrant-Vagrants/VVV). Before running `vagrant up`, do the following commands:
+The recommended environment for WP development is using Docker. Simply install via Docker Compose, and install WP and activate the theme as normal.
 
-```bash
-mkdir [[VVV_ROOT]]/www/mes.dev
-cd www/mes.dev
-git clone https://github.com/MindsEyeSociety/MES-WordPress.git mindseyesociety
-```
-
-This will allow VVV to correctly install and move everything to it's proper spots. To access the site after install, go to `mes.dev`.
+TODO: Make install script.
