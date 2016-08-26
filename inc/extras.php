@@ -160,6 +160,15 @@ add_action( 'phpmailer_init', 'mindseyesociety_fix_mail' );
 
 
 /**
+ * Filters the sender of mail to be the same.
+ * @return string
+ */
+add_filter( 'wp_mail_from', function() {
+	return 'wordpress@mindseyesociety.org';
+} );
+
+
+/**
  * Allows admins to use the autocomplete system for adding users.
  * @see user-new.php
  */
