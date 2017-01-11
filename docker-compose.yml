@@ -15,7 +15,7 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress
+    image: wordpress:php7.1
     links:
       - db
     ports:
