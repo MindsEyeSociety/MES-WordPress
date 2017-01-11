@@ -43,7 +43,7 @@ function mindsyesociety_wpmu_event_site() {
 		return;
 	}
 
-	$sites = wp_get_sites( array(
+	$sites = get_sites( array(
 		'public'   => 1,
 		'archived' => 0,
 	) );
