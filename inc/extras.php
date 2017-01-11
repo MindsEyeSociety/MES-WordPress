@@ -165,7 +165,7 @@ function mindseyesociety_search_site_select() {
 	$sites = get_site_option( 'mes-search-sites' );
 	echo '<table id="menu" class="form-table"><tr><th scope="row">';
 	esc_html_e( 'Enter searchable sites', 'mindseyesociety' );
-	echo '</th><td><input name="mes-search-sites" type="text" id="mes-search-sites" class="large-text" value="' . $sites . '" size="45"></td></tr></table>';
+	echo '</th><td><input name="mes-search-sites" type="text" id="mes-search-sites" value="' . $sites . '" size="45"></td></tr></table>';
 }
 add_action( 'wpmu_options', 'mindseyesociety_search_site_select' );
 
@@ -187,7 +187,7 @@ function mindsyesociety_search_site_save() {
 
 	$option = array_map( 'trim', explode( ',', $option ) );
 
-	update_site_option( 'mes-search-sites', $option );
+	update_site_option( 'mes-search-sites', implode( ',', $option ) );
 }
 add_action( 'update_wpmu_options', 'mindsyesociety_search_site_save' );
 
