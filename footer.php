@@ -12,7 +12,7 @@
 
 <footer id="colophon" class="footer" role="contentinfo">
 	<a href="http://white-wolf.com/" target="_blank" class="footer__link">
-		Some materials are © copyright 2013 and trademarked by CCP, hf. The Camarilla is a trademark of CCP hf. All rights reserved. © 2013 by CCP hf.
+		Some materials are &copy; copyright 2017 and trademarked by White Wolf, AB. The Camarilla is a trademark of White Wolf, AB. All rights reserved. &copy; 2017 by White Wolf, AB.
 	</a>
 </footer><!-- #colophon -->
 
