@@ -1,5 +1,5 @@
 module.exports = function( grunt ) {
-	var root   = '../../',
+	var root   = '../',
 	    assets = root + 'assets/';
 
 	grunt.initConfig( {

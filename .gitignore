@@ -1,2 +1,2 @@
-phpcs.xml
 node_modules
+.mysql

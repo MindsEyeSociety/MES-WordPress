@@ -1,0 +1,29 @@
+version: '2'
+services:
+  db:
+    image: mysql
+    volumes:
+        - "./.mysql:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    container_name: mes_wp_db
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:php7.1
+    links:
+      - db
+    ports:
+      - "8000:80"
+    restart: always
+    volumes:
+        - ".:/var/www/html/wp-content/themes/mindseyesociety"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+    container_name: mes_wp

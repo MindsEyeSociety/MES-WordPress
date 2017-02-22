@@ -1,0 +1,22 @@
+{
+  "name": "mes-dev-tools",
+  "version": "1.0.0",
+  "description": "Grunt tools for Wordpress-based development.",
+  "main": "gruntfile.js",
+  "author": "Ephraim Gregor",
+  "license": "ISC",
+  "repository": "",
+  "dependencies": {
+    "grunt": "^1.0.0",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-stylus": "^1.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-phpcs": "^0.4.0",
+    "load-grunt-tasks": "^3.5.2",
+    "nib": "^1.1.2",
+    "grunt-phplint": "^0.0.8",
+    "grunt-wp-css": "^0.2.1",
+    "grunt-jscs": "^3.0.1"
+  }
+}

@@ -140,10 +140,56 @@ add_action( 'admin_menu', 'mindseyesociety_remove_w3tc', 11 );
  */
 function mindseyesociety_search_multisite( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search ) {
+		$sites = get_site_option( 'mes-search-sites' );
+		if ( ! $sites ) {
+			return;
+		}
+
+		$sites = explode( ',', $sites );
+
+		if ( ! in_array( (string) get_current_blog_id(), $sites, true ) ) {
+			return;
+		}
 		$query->set( 'multisite', 1 );
+		$query->set( 'sites__in', $sites );
 	}
 }
 add_action( 'pre_get_posts', 'mindseyesociety_search_multisite' );
+
+
+/**
+ * Adds a search field to the network admin.
+ * @return void
+ */
+function mindseyesociety_search_site_select() {
+	$sites = get_site_option( 'mes-search-sites' );
+	echo '<table id="menu" class="form-table"><tr><th scope="row">';
+	esc_html_e( 'Enter searchable sites', 'mindseyesociety' );
+	echo '</th><td><input name="mes-search-sites" type="text" id="mes-search-sites" value="' . $sites . '" size="45"></td></tr></table>';
+}
+add_action( 'wpmu_options', 'mindseyesociety_search_site_select' );
+
+
+/**
+ * Saves multisite option for searching multiple sites.
+ * @return void
+ */
+function mindsyesociety_search_site_save() {
+	if ( ! is_super_admin() ) {
+		return;
+	}
+
+	$option = filter_input( INPUT_POST, 'mes-search-sites', FILTER_SANITIZE_STRING );
+
+	if ( null === $option || false === $option ) {
+		return;
+	}
+
+	$option = array_map( 'trim', explode( ',', $option ) );
+
+	update_site_option( 'mes-search-sites', implode( ',', $option ) );
+}
+add_action( 'update_wpmu_options', 'mindsyesociety_search_site_save' );
 
 
 /**
@@ -157,6 +203,15 @@ function mindseyesociety_fix_mail( $params ) {
 	}
 }
 add_action( 'phpmailer_init', 'mindseyesociety_fix_mail' );
+
+
+/**
+ * Filters the sender of mail to be the same.
+ * @return string
+ */
+add_filter( 'wp_mail_from', function() {
+	return 'wordpress@mindseyesociety.org';
+} );
 
 
 /**
