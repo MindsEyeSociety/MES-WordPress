@@ -1,2 +1,3 @@
 node_modules
 .mysql
+dev/node_modules
