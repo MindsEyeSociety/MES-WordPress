@@ -367,7 +367,6 @@ textarea,
 input,
 select {
 	border: 1px solid #ccc;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
 
@@ -484,7 +483,6 @@ textarea {
 
 .page-button {
 	padding: 10px;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	color: #e6d099;
 	background-color: #5e0000;
@@ -1036,7 +1034,6 @@ object {
 	width: auto;
 	height: auto;
 	padding: 15px 23px 14px;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	color: #21759b;
 	background-color: #f1f1f1;
